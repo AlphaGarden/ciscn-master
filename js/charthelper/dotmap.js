@@ -9,10 +9,16 @@ $.get('http://localhost:63342/ciscn-master/xml/les-miserables.gexf', function (x
 
     var graph = echarts.dataTool.gexf.parse(xml);
     var categories = [];
-    for (var i = 0; i < 9; i++) {
-        categories[i] = {
-            name: '类目' + i
-        };
+    for (var i = 0; i < 4; i++) {
+        if(i==0){
+            categories.push({name:'色情'});
+        }else if(i==1) {
+            categories.push({name:'反动'});
+        }else if(i==2){
+            categories.push({name:'暴力'});
+        }else{
+            categories.push({name:'正常'});
+        }
     }
     graph.nodes.forEach(function (node) {
         node.itemStyle = null;

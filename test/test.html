@@ -3,41 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="application/javascript" src="../bower_components/echarts/dist/echarts.js"></script>
-    <script src="../bower_components/angular/angular.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="../images/shield_32px_1199997_easyicon.net.ico">
+    <link rel="stylesheet" type="text/css" href="../css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"/>-->
+    <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
+    <!--<script type="text/javascript" src="../bower_components/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>-->
+    <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-route/angular-route.js"></script>
+    <script  src="../bower_components/echarts/dist/echarts.js"></script>
     <script src="../bower_components/echarts/dist/extension/dataTool.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/homestyle.css"/>
+    <script src="../bower_components/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css"/>
     <link type="text/css" rel="stylesheet" href="../css/animate.css"/>
 </head>
-<body>
-<!-- Button trigger modal -->
-<!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">-->
-    <!--Launch demo modal-->
-<!--</button>-->
+<body ng-app='routingDemoApp'>
 
-<!-- Modal -->
-<div class="modal  fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="modal-body">
-                <div class="center-block" style="width: 800px;height: 800px" id="echart3"></div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-    $("#myModal").modal();
-</script>
+<h2>AngularJS 路由应用</h2>
+<ul>
+    <li><a href="#/">首页</a></li>
+    <li><a href="#/computers">电脑</a></li>
+    <li><a href="#/printers">打印机</a></li>
+    <li><a href="#/blabla">其他</a></li>
+</ul>
+
+<div ng-view></div>
 </body>
-<script src="../js/charthelper/dotmap.js"></script>
+<script>
+    angular.module('routingDemoApp',['ngRoute'])
+            .config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider){
+                $locationProvider.hashPrefix('');
+                $routeProvider
+                        .when('/',{template:'这是首页页面'})
+                        .when('/computers',{template:'这是电脑分类页面'})
+                        .when('/printers',{template:'这是打印机页面'})
+                        .otherwise({redirectTo:'/'});
+            }]);
+</script>
+
+
+
 </html>

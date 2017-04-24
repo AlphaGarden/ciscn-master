@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Net Defender</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is the project from Stroy Book.">
+    <meta name="author" content="Jiayong Mo">
+    <link rel="icon" type="image/x-icon" href="../images/shield_32px_1199997_easyicon.net.ico">
+    <link rel="stylesheet" type="text/css" href="../css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css"/>
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css"/>
+    <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
+    <script type="text/javascript" src="../bower_components/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script  src="../bower_components/echarts/dist/echarts.js"></script>
+    <script src="../bower_components/echarts/dist/extension/dataTool.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/homestyle.css"/>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="navController">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Navbar Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><strong>Net Defender</strong></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="mainpage.html"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li><a ng-click="dashboard()" href="#">功能面板</a></li>
+                    <li><a>帮助</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right notshow" ng-class="{true:'animated fadeIn',false:'notshow'}[logresponse]">
+                    <li>
+                        <form class="navbar-form navbar-right">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                            </div>
+                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search"></span></button>
+                        </form>
+                    </li>
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Good Morning:Jack</strong><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">消息<span class="badge pull-right">3</span></a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a class="bg-danger" ng-click="logout()" href="#">退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-right" ng-class="{false:'animated fadeIn',true:'notshow'}[logresponse]">
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" class="form-control">
+                    </div>
+                    <button type="submit" ng-click="login()" class="btn btn-success">Sign in</button>
+                    <button type="button" class="btn btn-primary">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div ng-class="{true:'col-sm-3 col-md-2 sidebar animated fadeInLeft',false:'animated fadeOutLeft'}[sidebarflag]" ng-show="sidebarflag">
+                <ul class="nav nav-sidebar">
+                    <li class="active"><a href="#">Dash Board <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#/">主页</a></li>
+                    <li><a href="#/实时资源分析">实时资源分析</a></li>
+                    <li><a href="#/报表导出">报表导出</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li><a href="#/资源屏蔽">资源屏蔽</a></li>
+                    <li><a href="#/结点屏蔽">结点屏蔽</a></li>
+                    <li><a href="#/屏蔽历史">屏蔽历史</a></li>
+                    <li><a href="">举报</a> </li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li><a href="">用户设置</a></li>
+                    <li><a href="">系统设置</a></li>
+                </ul>
+            </div>
+            <div ng-class="{true:'col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main',false:'col-md-12'}[sidebarflag]" >
+                <div ng-view></div>
+                <!--页尾模块-->
+                <div>
+                    <hr class="featurette-divider">
+                    <div class="row">
+                        <a href="#" class="backtotop pull-right"><img src="../images/arrow_top_27.967828418231px_1187790_easyicon.net.png"></a>
+                        <footer>
+                            <address >
+                                <strong>Net Defender, Inc.</strong>
+                                <br /> 001 ,part2,ChuanDa Road<br /> Sichuan Chengdu, CN 625100<br />
+                                <abbr title="Phone">P:</abbr>
+                                (123) 456-7890
+                            </address>
+                            <p>
+                                Copyright by: Jiayong Mo
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+<script src="../bower_components/echarts/map/js/world.js"></script>
+<script src="../js/app-init.js"></script>
+<script src="../js/pageinfo.js"></script>
+
+</html>
