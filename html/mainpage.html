@@ -19,10 +19,10 @@
     <script type="text/javascript" src="../bower_components/angular-route/angular-route.min.js"></script>
     <script  src="../bower_components/echarts/dist/echarts.js"></script>
     <script src="../bower_components/echarts/dist/extension/dataTool.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/homestyle.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
 </head>
 <body>
-<div ng-app="myApp" ng-controller="navController">
+<div ng-app="myApp" ng-controller="navController" ng-cloak>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -50,7 +50,7 @@
                         </form>
                     </li>
                     <li class="dropdown ">
-                        <a href="#" class="dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Good Morning:Jack</strong><span class="caret"></span></a>
+                        <a  class="dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Good Morning:Jack</strong><span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">消息<span class="badge pull-right">3</span></a></li>
                             <li><a href="#">Something else here</a></li>
@@ -87,7 +87,7 @@
                     <li><a href="#/资源屏蔽">资源屏蔽</a></li>
                     <li><a href="#/结点屏蔽">结点屏蔽</a></li>
                     <li><a href="#/屏蔽历史">屏蔽历史</a></li>
-                    <li><a href="">举报</a> </li>
+                    <li><a href="#/直播举报">直播举报</a> </li>
                 </ul>
                 <ul class="nav nav-sidebar">
                     <li><a href="">用户设置</a></li>
@@ -95,6 +95,7 @@
                 </ul>
             </div>
             <div ng-class="{true:'col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main',false:'col-md-12'}[sidebarflag]" >
+
                 <div ng-view></div>
                 <!--页尾模块-->
                 <div>
@@ -121,7 +122,6 @@
 
 </div>
 </body>
-<script src="../bower_components/echarts/map/js/world.js"></script>
 <script src="../js/app-init.js"></script>
 <script src="../js/pageinfo.js"></script>
 

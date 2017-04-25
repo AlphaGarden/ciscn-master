@@ -1,20 +1,21 @@
 /**
  * Created by garden on 17-4-11.
  */
-app.controller("navController",function ($scope) {
+app.controller("navController",function ($scope,ramdonlabelclasspicker) {
     //logresponse default value is false
     $scope.logresponse = false;
     $scope.sidebarflag = true;
+    $scope.btnflag = -1;
     $scope.toggleshow= function () {
         $scope.isover= true;
 
-    };
+    }
     $scope.togglehide = function(){
         $scope.isover = false;
-    };
+    }
     $scope.dopulse = function () {
         $scope.pulseflag = true;
-    };
+    }
     $scope.notpulse = function () {
         $scope.pulseflag = false;
     }
@@ -31,6 +32,49 @@ app.controller("navController",function ($scope) {
             $scope.sidebarflag = true;
         }
     }
+    $scope.btnshow = function (index) {
+        $scope.btnflag = index;
+        // alert($scope.btnflag);
+    }
+    $scope.btnhide = function () {
+        $scope.btnflag = -1;//Not matching any media,so hide that button blcok
+    }
+
+    $scope.markrecord = function (index,btn) {
+        alert(index+" "+btn);
+    }
+    $scope.resourcerecord=[
+        {
+            "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
+            "heading":"Ip地址:114.117.194.0",
+            "belonging":"归属地：四川成都市",
+            "capturetime":"捕获时间:Sun, 23 Apr 2017 09:42:35 ",
+            "resourcename":"资源名：超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿",
+            "resourcetype":"视频文件",
+            "classfystandard":"色情",
+            "labeltype":ramdonlabelclasspicker.pick()
+        },
+        {
+            "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
+            "heading":"Ip地址:114.117.194.0",
+            "belonging":"归属地：四川成都市",
+            "capturetime":"捕获时间:Sun, 23 Apr 2017 09:42:35 ",
+            "resourcename":"资源名：超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿",
+            "resourcetype":"视频文件",
+            "classfystandard":"色情",
+            "labeltype":ramdonlabelclasspicker.pick()
+        },
+        {
+            "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
+            "heading":"Ip地址:114.117.194.0",
+            "belonging":"归属地：四川成都市",
+            "capturetime":"捕获时间:Sun, 23 Apr 2017 09:42:35 ",
+            "resourcename":"资源名：超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿",
+            "resourcetype":"视频文件",
+            "classfystandard":"色情",
+            "labeltype":ramdonlabelclasspicker.pick()
+        }
+    ];
     $scope.labels=[
         {"class":"label label-default animated fadeIn",
             "content":"label1"},

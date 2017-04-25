@@ -21,89 +21,27 @@
         <hr class="content-divider">
         <!--Main content-->
         <div class="row">
-            <div class="media-list">
-                <div class="media animated fadeInRight">
+            <div class="media-list" ng-repeat="item in resourcerecord">
+                <div class="media animated fadeInRight"  ng-mouseover="btnshow($index)" ng-mouseleave="btnhide()">
                     <div class="media-left">
                         <a href="#">
-                            <img class="media-object" src="../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png" alt="img">
+                            <img class="media-object" ng-srcset="{{item.src}}" alt="img">
                         </a>
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading">
-                            <strong>Ip地址:114.117.194.0</strong>
-                            <div class="btn-group-sm pull-right">
-                                <button type="button" class="btn  btn-warning">标记资源</button>
-                                <button type="button" class="btn  btn-danger">标记结点</button>
+                            <strong>{{item.heading}}</strong>
+                            <div ng-show="btnflag==$index" class="btn-group-sm animated fadeIn pull-right">
+                                <button type="button"   class="btn  btn-warning">标记资源</button>
+                                <button type="button"   class="btn  btn-danger">标记结点</button>
+                                <button type="button"   class="btn  btn-success">忽略</button>
                             </div>
                         </h4>
-                        <p>归属地：四川成都市</p>
-                        <P>捕获时间:Sun, 23 Apr 2017 09:42:35 GMT</P>
-                        <p>文件名：超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿</p>
-                        <p>文件类型:<span class="label label-info">视频文件</span></p>
-                        <p>分类标准：<span class="label label-danger">色情</span></p>
-                    </div>
-                </div>
-                <div class="media animated fadeInRight">
-                    <div class="media-left">
-                        <a href="#">
-                            <img class="media-object" src="../images/infobar/text_lines_51.658703071672px_1205974_easyicon.net.png" alt="img">
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">
-                            <strong>Ip地址:114.117.194.0</strong>
-                            <div class="btn-group-sm pull-right">
-                                <button type="button" class="btn  btn-warning">标记资源</button>
-                                <button type="button" class="btn  btn-danger">标记结点</button>
-                            </div>
-                        </h4>
-                        <p>归属地：江苏南京市</p>
-                        <P>捕获时间:Sun, 23 Apr 2017 09:44:35 GMT</P>
-                        <p>文件名：www.henduofuli.net发布，每日更新 | 韩国WINTV女主播 大尺度视讯 按姓名分类 [127G大合集 磁力链接]</p>
-                        <p>文件类型:<span class="label label-info">文本文件</span></p>
-                        <p>分类标准：<span class="label label-danger">色情</span> </p>
-                    </div>
-                </div>
-                <div class="media animated fadeInRight">
-                    <div class="media-left">
-                        <a href="#">
-                            <img class="media-object" src="../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png" alt="img">
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">
-                            <strong>Ip地址:113.44.15.105</strong>
-                            <div class="btn-group-sm pull-right">
-                                <button type="button" class="btn  btn-warning">标记资源</button>
-                                <button type="button" class="btn  btn-danger">标记结点</button>
-                            </div>
-                        </h4>
-                        <p>归属地：意大利</p>
-                        <P>捕获时间:Sun, 23 Apr 2017 09:41:35 GMT</P>
-                        <p>文件名：(成年コミック) [雑誌] [アンソロジー] 月刊Web男の娘・れくしょんッ！S Vol.04 [DL版].zip</p>
-                        <p>文件类型:<span class="label label-info">压缩图片文件</span></p>
-                        <p>分类标准：<span class="label label-danger">色情</span></p>
-                    </div>
-                </div>
-                <div class="media animated fadeInRight">
-                    <div class="media-left">
-                        <a href="#">
-                            <img class="media-object" src="../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png" alt="img">
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">
-                            <strong>Ip地址:113.44.15.105</strong>
-                            <div class="btn-group-sm pull-right">
-                                <button type="button" class="btn  btn-warning">标记资源</button>
-                                <button type="button" class="btn  btn-danger">标记结点</button>
-                            </div>
-                        </h4>
-                        <p>归属地：俄罗斯</p>
-                        <P>捕获时间:Sun, 23 Apr 2017 09:41:35 GMT</P>
-                        <p>文件名：青草_20160131A本资源群347491671由我爱主播网整理发布.mp4</p>
-                        <p>文件类型:<span class="label label-info">视频mp4文件</span></p>
-                        <p>分类标准：<span class="label label-danger">色情</span></p>
+                        <p>{{item.belonging}}</p>
+                        <P>{{item.capturetime}}</P>
+                        <p>{{item.resourcename}}</p>
+                        <p>文件类型:<span class={{item.labeltype}}>{{item.resourcetype}}</span></p>
+                        <p>分类标准：<span class={{item.labeltype}}>{{item.classfystandard}}</span></p>
                     </div>
                 </div>
             </div>
