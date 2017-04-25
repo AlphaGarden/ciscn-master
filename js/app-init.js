@@ -13,6 +13,7 @@ var app = angular.module("myApp",['ngRoute']);
             .when('/资源屏蔽', {templateUrl:'/ciscn-master/html/resourceblock.html'})
             .when('/结点屏蔽', {templateUrl:'/ciscn-master/html/nodeblock.html'})
             .when('/直播举报',{templateUrl:'/ciscn-master/html/livereport.html'})
+            .when('/系统设置',{templateUrl:'/ciscn-master/html/systemsetting.html'})
             .otherwise({redirectTo:'/'});
     }]);
 app.service('ramdonlabelclasspicker', function() {
