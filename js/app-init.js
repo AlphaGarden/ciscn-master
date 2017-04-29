@@ -6,14 +6,14 @@ var app = angular.module("myApp",['ngRoute']);
     app.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
         $locationProvider.hashPrefix('');
         $routeProvider
-            .when('/',{templateUrl:'/ciscn-master/html/overview.html'})
-            .when('/实时资源分析', {templateUrl:'/ciscn-master/html/realtime.html'})
-            .when('/报表导出', {templateUrl:'/ciscn-master/html/log.html'})
-            .when('/屏蔽历史', {templateUrl:'/ciscn-master/html/blockhistory.html'})
-            .when('/资源屏蔽', {templateUrl:'/ciscn-master/html/resourceblock.html'})
-            .when('/结点屏蔽', {templateUrl:'/ciscn-master/html/nodeblock.html'})
-            .when('/直播举报',{templateUrl:'/ciscn-master/html/livereport.html'})
-            .when('/系统设置',{templateUrl:'/ciscn-master/html/systemsetting.html'})
+            .when('/',{templateUrl:'../html/overview.html'})
+            .when('/实时资源分析', {templateUrl:'../html/realtime.html'})
+            .when('/报表导出', {templateUrl:'../html/log.html'})
+            .when('/屏蔽历史', {templateUrl:'../html/blockhistory.html'})
+            .when('/资源屏蔽', {templateUrl:'../html/resourceblock.html'})
+            .when('/结点屏蔽', {templateUrl:'../html/nodeblock.html'})
+            .when('/直播举报',{templateUrl:'../html/livereport.html'})
+            .when('/系统设置',{templateUrl:'../html/systemsetting.html'})
             .otherwise({redirectTo:'/'});
     }]);
 app.service('ramdonlabelclasspicker', function() {
