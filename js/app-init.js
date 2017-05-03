@@ -7,6 +7,7 @@ var app = angular.module("myApp",['ngRoute']);
         $locationProvider.hashPrefix('');
         $routeProvider
             .when('/',{templateUrl:'../html/overview.html'})
+            .when('/DHT网络热点图', {templateUrl:'../html/map.html'})
             .when('/实时资源分析', {templateUrl:'../html/realtime.html'})
             .when('/报表导出', {templateUrl:'../html/log.html'})
             .when('/屏蔽历史', {templateUrl:'../html/blockhistory.html'})
