@@ -22,16 +22,10 @@
 <link type="text/css" rel="stylesheet" href="../css/animate.css"/>
 </head>
 <body>
-<div id ="div2">
-    <div id ="div1">
-        <p id="p1">Hell world!</p>
-    </div>
-</div>
+<a id="loginmsg" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-placement="bottom" data-content="And here's some amazing content. It's very engaging. Right?">可消失的弹出框</a>
 </body>
 <script>
-    var elem = $("#p1").parent().parent().html();
+    $('#loginmsg').popover();
 </script>
-
-
 
 </html>

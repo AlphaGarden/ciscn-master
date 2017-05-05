@@ -17,6 +17,7 @@
     <script type="text/javascript" src="../bower_components/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
     <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="../bower_components/angular-route/angular-route.min.js"></script>
+    <!--<script type="text/javascript" src="../bower_components/angular-animate/angular-animate.min.js"></script>-->
     <script  src="../bower_components/echarts/dist/echarts.js"></script>
     <script src="../bower_components/echarts/dist/extension/dataTool.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
@@ -36,9 +37,13 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="mainpage.html"><span class="glyphicon glyphicon-home"></span></a></li>
-                    <li><a ng-click="dashboard()" href="#">功能面板</a></li>
-                    <li><a>帮助</a></li>
+                    <li class="active">
+                        <a href="mainpage.html">
+                            <span class="glyphicon glyphicon-home"></span>
+                        </a>
+                    </li>
+                    <li><a ng-click="dashboard()" >功能面板</a></li>
+                <li><a>帮助</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right notshow" ng-class="{true:'animated fadeIn',false:'notshow'}[logresponse]">
                     <li>
@@ -63,12 +68,12 @@
                 </ul>
                 <form class="navbar-form navbar-right" ng-class="{false:'animated fadeIn',true:'notshow'}[logresponse]">
                     <div class="form-group">
-                        <input type="email" placeholder="Email" class="form-control">
+                        <input type="email" placeholder="Email" ng-bind="nUsername" class="form-control">
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Password" class="form-control">
+                        <input type="password" placeholder="Password" ng-bind="nPassword" class="form-control">
                     </div>
-                    <button type="submit" ng-click="login()" class="btn btn-success">登录</button>
+                    <button id="loginmsg"  ng-click="login()" class="btn btn-success" data-toggle="popover"  data-trigger="focus" >登录</button>
                 </form>
             </div>
         </div>
@@ -91,7 +96,7 @@
                 </ul>
                 <ul class="nav nav-sidebar">
                     <li><a href="">用户设置</a></li>
-                    <li><a href="#/系统设置">系统设置</a></li>
+                    <li><a href="#/设系统置">系统设置</a></li>
                 </ul>
             </div>
             <div ng-class="{true:'col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main',false:'col-md-12'}[sidebarflag]" >
@@ -118,11 +123,9 @@
             </div>
         </div>
     </div>
-
-
 </div>
 </body>
+
 <script src="../js/app-init.js"></script>
 <script src="../js/pageinfo.js"></script>
-
 </html>

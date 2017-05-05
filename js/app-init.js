@@ -25,16 +25,43 @@ app.service('ramdonlabelclasspicker', function() {
     }
 });
 
+ var resourcemarklist= [];
+ var nodemarklist = [];
 //Angular command
 app.directive("marksource",function () {
     return{
         restrict:"A",
         link: function ($scope,elem,attrs) {
+            var index;
             $(elem).click(function () {
-            });
+                index = $.inArray(attrs.tag,resourcemarklist);
+                if(index != -1){
+                    $(this).parent().parent().parent().parent().removeClass("resourcemark");
+                    resourcemarklist.splice(index,1);
+                }else{
+                    $(this).parent().parent().parent().parent().addClass("resourcemark");
+                    resourcemarklist.push(attrs.tag);
+                }
+            })
+        }
+    }
+});
+app.directive("marknode",function () {
+    return{
+        restrict:"A",
+        link:function ($scope,elem,attrs) {
+            var index;
+            $(elem).click(function () {
+               index = $.inArray(attrs.tag,nodemarklist);
+               if(index != -1){
+                   $(this).parent().parent().parent().parent().removeClass("nodemark");
+                   nodemarklist.splice(index,1);
+               }else{
+                   $(this).parent().parent().parent().parent().addClass("nodemark");
+                   nodemarklist.push(attrs.tag);
+               }
+            })
         }
     }
 });
 // Global array list
-app.value('resourceblocklist',[]);
-app.value('nodeblocklist',[]);

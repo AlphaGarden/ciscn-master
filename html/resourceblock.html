@@ -32,9 +32,9 @@
                         <h4 class="media-heading">
                             <strong>{{item.heading}}</strong>
                             <div ng-show="btnflag==$index" class="btn-group-sm animated fadeIn pull-right">
-                                <button type="button"   class="btn  btn-warning">标记资源</button>
-                                <button type="button"   class="btn  btn-danger">标记结点</button>
-                                <button type="button"   class="btn  btn-success">忽略</button>
+                                <button type="button" marksource tag="{{item.id}}" class="btn  btn-warning">标记资源</button>
+                                <button type="button" marknode tag="{{item.ip}}"  class="btn  btn-danger">标记结点</button>
+                                <button type="button" ng-click="hideresourceitem($index)"  class="btn  btn-success">忽略</button>
                             </div>
                         </h4>
                         <p>{{item.belonging}}</p>
@@ -43,7 +43,8 @@
                         <p>文件类型:<span class={{item.labeltype}}>{{item.resourcetype}}</span></p>
                         <p>分类标准：<span class={{item.labeltype}}>{{item.classfystandard}}</span></p>
                     </div>
-                </div>
+            </div>
+
             </div>
             <hr class="button-divider">
             <button type="button" class="btn btn-block btn-danger"><strong>确认屏蔽</strong></button>
