@@ -180,4 +180,8 @@ ul li a img{
     background-color: lightblue;
 }
 
+/*<a> setting*/
+a{
+    cursor: pointer;
+}
 /*Angular Animated*/

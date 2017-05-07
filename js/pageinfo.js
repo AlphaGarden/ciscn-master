@@ -5,6 +5,7 @@ app.controller("navController",function ($scope,$interval,ramdonlabelclasspicker
     //logresponse default value is false
     $scope.logresponse = false;
     $scope.sidebarflag = true;
+    $scope.realtimeTypeFlag = "nonlive";
     $scope.btnflag = -1;
     $scope.toggleshow= function () {
         $scope.isover= true;
@@ -27,19 +28,6 @@ app.controller("navController",function ($scope,$interval,ramdonlabelclasspicker
                 title:$scope.loginResponseTitle,
                 content:$scope.loginResponseContent,
                 placement:"bottom",
-                template: '' +
-                '<div class="popover">' +
-                '<div class="arrow">' +
-                '</div>' +
-                '<div class="popover-inner">' +
-                '<h1 class="popover-title">' +
-                'Hello world!!!!' +
-                '</h1>' +
-                '<div class="popover-content">' +
-                '<p></p>' +
-                '</div>' +
-                '</div>' +
-                '</div>'
             });
     }
     $scope.logout = function () {
@@ -66,6 +54,10 @@ app.controller("navController",function ($scope,$interval,ramdonlabelclasspicker
         $scope.btnflag = -1;//Not matching any media,so hide that button blcok
     }
 
+    //realTime Page
+    $scope.realtimeSwitch =function (flag) {
+        $scope.realtimeTypeFlag = flag;
+    }
 
     $scope.resourcerecord=[
         {
@@ -139,16 +131,93 @@ app.controller("navController",function ($scope,$interval,ramdonlabelclasspicker
             "vionum":"452",
             "feature":["法轮功","叙利亚战争","恐怖袭击"]
         }
-        ]
-    // $http({
-    //     method: 'GET',
-    //     url: '/someUrl'
-    // }).then(function successCallback(response) {
-    //     $scope.resourcerecord = response.data;
-    // }, function errorCallback(response) {
-    //     // called asynchronously if an error occurs
-    //     // or server returns response with an error status.
-    // });
+        ];
+    $scope.realtimeNonLiveRecord=[
+        {
+            "id":"resource-001",
+            "ip":"114.117.194.0",
+            "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
+            "title":"114.117.194.0",
+            "belonging":"四川成都市",
+            "capturetime":"Sun, 23 Apr 2017 09:42:35 GMT",
+            "filename":"超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜",
+            "filetype":["视频文件"],
+            "classification":["色情"]
+        },
+        {
+            "recordtype":"nonlive",
+            "id":"resource-002",
+            "ip":"114.117.194.0",
+            "src":"../images/infobar/text_lines_51.658703071672px_1205974_easyicon.net.png",
+            "title":"114.117.194.0",
+            "belonging":"江苏南京市",
+            "capturetime":"Sun, 23 Apr 2017 09:44:35 GMT",
+            "filename":"www.henduofuli.net发布，每日更新 | 韩国WINTV女主播 大尺度视讯 按姓名分类 [127G大合集 磁力链接]",
+            "filetype":["文本文件","种子文件"],
+            "classification":["色情"]
+        },
+        {
+            "id":"resource-003",
+            "ip":"113.44.15.105",
+            "src":"../images/infobar/text_lines_51.658703071672px_1205974_easyicon.net.png",
+            "title":"113.44.15.105",
+            "belonging":"意大利",
+            "capturetime":"Sat, 23 Apr 2017 09:41:35 GMT",
+            "filename":"成年コミック) [雑誌] [アンソロジー] 月刊Web男の娘・れくしょんッ！S Vol.04 [DL版].zip",
+            "filetype":["压缩图片文件","种子文件"],
+            "classification":["色情"]
+        },
+        {
+            "id":"resource-004",
+            "ip":"113.44.15.105",
+            "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
+            "title":"113.44.15.105",
+            "belonging":"俄罗斯",
+            "capturetime":"Sun, 23 Apr 2017 09:41:35 GMT",
+            "filename":"青草_20160131A本资源群347491671由我爱主播网整理发布.mp4",
+            "filetype":["视频mp4文件","种子文件"],
+            "classification":["色情"]
+        }
+    ];
+    $scope.realtimeLiveRecord=[
+        {
+            "src":"../images/harmfulinfo/porn_128px_1075595_easyicon.net.png",
+            "title":"斗鱼专业色情主播",
+            "capturetime":"Sun, 23 Apr 2017 09:44:35 GMT",
+            "platform":"斗鱼tv",
+            "number":"10092",
+            "livetype":"色情"
+
+        },
+        {
+            "src":"../images/harmfulinfo/porn_128px_1075595_easyicon.net.png",
+            "title":"斗鱼专业色情主播",
+            "capturetime":"Sun, 23 Apr 2017 09:44:35 GMT",
+            "platform":"斗鱼tv",
+            "number":"10092",
+            "livetype":"色情"
+
+        },
+        {
+            "src":"../images/harmfulinfo/porn_128px_1075595_easyicon.net.png",
+            "title":"斗鱼专业色情主播",
+            "capturetime":"Sun, 23 Apr 2017 09:44:35 GMT",
+            "platform":"斗鱼tv",
+            "number":"10092",
+            "livetype":"色情"
+
+        },
+        {
+            "src":"../images/harmfulinfo/porn_128px_1075595_easyicon.net.png",
+            "title":"斗鱼专业色情主播",
+            "capturetime":"Sun, 23 Apr 2017 09:44:35 GMT",
+            "platform":"斗鱼tv",
+            "number":"10092",
+            "livetype":"色情"
+
+        }
+    ];
+
 
     var flag;
     flag =  $interval(function () {
@@ -204,15 +273,7 @@ app.controller("navController",function ($scope,$interval,ramdonlabelclasspicker
             "content":"This is the data info to check to the chart trends in the Story Network!",
             "btn":"查看"
         }];
-    // $http({
-    //     method: 'GET',
-    //     url: '/someUrl'
-    // }).then(function successCallback(response) {
-    //     $scope.records = response.data;
-    // }, function errorCallback(response) {
-    //     // called asynchronously if an error occurs
-    //     // or server returns response with an error status.
-    // });
+
     $scope.sliderecords=[
         {
             "class":"second-slide img-responsive",

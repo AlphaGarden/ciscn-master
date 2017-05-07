@@ -8,13 +8,13 @@ var app = angular.module("myApp",['ngRoute']);
         $routeProvider
             .when('/',{templateUrl:'../html/overview.html'})
             .when('/DHT网络热点图', {templateUrl:'../html/map.html'})
-            .when('/实时资源分析', {templateUrl:'../html/realtime.html'})
+            .when('/实时分析', {templateUrl:'../html/realtime.html'})
             .when('/报表导出', {templateUrl:'../html/log.html'})
             .when('/屏蔽历史', {templateUrl:'../html/blockhistory.html'})
             .when('/资源屏蔽', {templateUrl:'../html/resourceblock.html'})
             .when('/结点屏蔽', {templateUrl:'../html/nodeblock.html'})
             .when('/直播举报',{templateUrl:'../html/livereport.html'})
-            .when('/系统设置',{templateUrl:'../html/systemsetting.html'})
+            .when('/系统统置',{templateUrl:'../html/systemsetting.html'})
             .otherwise({redirectTo:'/'});
     }]);
 app.service('ramdonlabelclasspicker', function() {
@@ -35,10 +35,12 @@ app.directive("marksource",function () {
             var index;
             $(elem).click(function () {
                 index = $.inArray(attrs.tag,resourcemarklist);
+                //当前资源存在标记列表中
                 if(index != -1){
                     $(this).parent().parent().parent().parent().removeClass("resourcemark");
                     resourcemarklist.splice(index,1);
                 }else{
+                    //当前资源不存在标记列表中
                     $(this).parent().parent().parent().parent().addClass("resourcemark");
                     resourcemarklist.push(attrs.tag);
                 }
@@ -53,10 +55,12 @@ app.directive("marknode",function () {
             var index;
             $(elem).click(function () {
                index = $.inArray(attrs.tag,nodemarklist);
+                //当前结点存在标记列表中
                if(index != -1){
                    $(this).parent().parent().parent().parent().removeClass("nodemark");
                    nodemarklist.splice(index,1);
                }else{
+                   //当前结点不在标记列表中
                    $(this).parent().parent().parent().parent().addClass("nodemark");
                    nodemarklist.push(attrs.tag);
                }
