@@ -5,13 +5,25 @@
     <div class="container" ng-switch="realtimeTypeFlag">
         <div class="row">
             <div class="btn-group-lg" >
-                <button type="button" class="btn  btn-primary">色情不良信息</button>
-                <button type="button" class="btn  btn-warning">反动不良信息</button>
-                <button type="button" class="btn  btn-success">暴力不良信息</button>
-                <button type="button" class="btn  btn-info">文档</button>
-                <button type="button" class="btn  btn-primary">图像</button>
-                <button type="button" class="btn  btn-warning">视频</button>
-                <button type="button" class="btn btn-success">中国</button>
+                <button type="button" class="btn" ng-click="breverse1()" ng-class="{true:'btn-primary',false:'btn-default'}[boption1]">色情不良信息</button>
+                <button type="button" class="btn" ng-click="breverse2()" ng-class="{true:'btn-warning',false:'btn-default'}[boption2]">反动不良信息</button>
+                <button type="button" class="btn" ng-click="breverse3()" ng-class="{true:'btn-success',false:'btn-default'}[boption3]">暴力不良信息</button>
+                <button type="button" class="btn" ng-click="breverse4()" ng-class="{true:'btn-info',false:'btn-default'}[boption4]">文档</button>
+                <button type="button" class="btn" ng-click="breverse5()" ng-class="{true:'btn-success',false:'btn-default'}[boption5]">图像</button>
+                <button type="button" class="btn" ng-click="breverse6()" ng-class="{true:'btn-warning',false:'btn-default'}[boption6]">视频</button>
+                <div class="btn-group">
+                  <button  type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      {{pZone}} <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                      <li><a ng-click="zonePicker('中国')">中国</a></li>
+                      <li><a ng-click="zonePicker('美国')">美国</a></li>
+                      <li><a ng-click="zonePicker('意大利')">意大利</a></li>
+                      <li><a ng-click="zonePicker('韩国')">韩国</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a ng-click="zonePicker('日本')">日本</a></li>
+                  </ul>
+                </div>
                 <button type="button" class="btn btn-danger pull-right">暂停滚动</button>
                 <button type="button" class="btn btn-success pull-right" style="margin-right: 5px" >开始滚动</button>
             </div>

@@ -6,6 +6,11 @@ app.controller("navController",function ($scope,$interval,ramdonlabelclasspicker
     $scope.logresponse = false;
     $scope.sidebarflag = true;
     $scope.realtimeTypeFlag = "nonlive";
+    $scope.overviewTypeFlag = "nonlive";
+    $scope.badResourceNum = 1000;
+    $scope.badNodeNum = 31412;
+    $scope.badLiveNum = 3145;
+    $scope.pZone = "中国"
     $scope.btnflag = -1;
     $scope.toggleshow= function () {
         $scope.isover= true;
@@ -52,6 +57,11 @@ app.controller("navController",function ($scope,$interval,ramdonlabelclasspicker
     }
     $scope.btnhide = function () {
         $scope.btnflag = -1;//Not matching any media,so hide that button blcok
+    }
+
+    //overview page
+    $scope.overviewSwitch = function (flag) {
+        $scope.overviewTypeFlag = flag;
     }
 
     //realTime Page
@@ -234,6 +244,11 @@ app.controller("navController",function ($scope,$interval,ramdonlabelclasspicker
         };
         $scope.noderecord.push(item);
     },5000);
+    $interval(function () {
+        $scope.badResourceNum +=1;
+        $scope.badNodeNum +=1;
+        $scope.badLiveNum +=1;
+        },1000);
     $scope.stop = function () {
         $interval.cancel(flag);
     }
@@ -273,7 +288,6 @@ app.controller("navController",function ($scope,$interval,ramdonlabelclasspicker
             "content":"This is the data info to check to the chart trends in the Story Network!",
             "btn":"查看"
         }];
-
     $scope.sliderecords=[
         {
             "class":"second-slide img-responsive",
@@ -291,5 +305,57 @@ app.controller("navController",function ($scope,$interval,ramdonlabelclasspicker
             "btn":"View Detail"
         }
     ]
-
+    //Zone Picker
+    $scope.zonePicker = function (zone) {
+        $scope.pZone =zone;
+    }
+    //button style reverse module
+    $scope.boption1 =true;
+    $scope.boption2 =true;
+    $scope.boption3 =true;
+    $scope.boption4 =true;
+    $scope.boption5 =true;
+    $scope.boption6 =true;
+    $scope.breverse1 = function () {
+        if($scope.boption1){
+            $scope.boption1 = false;
+        }else{
+            $scope.boption1 = true;
+        }
+    }
+    $scope.breverse2 = function () {
+        if($scope.boption2){
+            $scope.boption2 = false;
+        }else{
+            $scope.boption2 = true;
+        }
+    }
+    $scope.breverse3 = function () {
+        if($scope.boption3){
+            $scope.boption3 = false;
+        }else{
+            $scope.boption3 = true;
+        }
+    }
+    $scope.breverse4 = function () {
+        if($scope.boption4){
+            $scope.boption4 = false;
+        }else{
+            $scope.boption4 = true;
+        }
+    }
+    $scope.breverse5 = function () {
+        if($scope.boption5){
+            $scope.boption5 = false;
+        }else{
+            $scope.boption5 = true;
+        }
+    }
+    $scope.breverse6 = function () {
+        if($scope.boption6){
+            $scope.boption6 = false;
+        }else{
+            $scope.boption6 = true;
+        }
+    }
 });

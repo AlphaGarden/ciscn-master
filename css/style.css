@@ -184,4 +184,8 @@ ul li a img{
 a{
     cursor: pointer;
 }
+/*divider vertical*/
+.verti-divider{
+    border-right: solid 2px dimgray;
+}
 /*Angular Animated*/

@@ -1,75 +1,44 @@
 <!--概况模块-->
 <div>
-    <hr class="content-divider">
-    <div class="container">
+    <div class="container whitebox">
+        <div class="row ">
+            <h3 class="text-center text-info"><strong>系统状态</strong></h3>
+            <div class="col-md-4 text-info text-center">
+                <div class="">
+                    <p  ><i class="glyphicon glyphicon-time"></i><strong>不良资源统计</strong></p>
+                    <h2 ><strong>{{badResourceNum}}</strong></h2>
+                    <p><span style="color: lightseagreen"><strong>30%</strong></span> From last Week</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-info   text-center">
+                <div>
+                    <p  ><i class="glyphicon glyphicon-time"></i><strong>不结点节点统计</strong></p>
+                    <h2 ><strong>{{badNodeNum}}</strong></h2>
+                    <p><span class="text-warning"><strong>50%</strong></span> From last Week</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-info  text-center">
+                <div >
+                    <p  ><i class="glyphicon glyphicon-time"></i><strong>不良直播统计</strong></p>
+                    <h2 ><strong>{{badResourceNum}}</strong></h2>
+                    <p><span style="color: lightcoral"><strong>45%</strong></span> From last Week</p>
+                </div>
+            </div>
+        </div>
         <div class="row">
-            <h3 class="text-center"><strong>系统状态</strong></h3>
-            <div class="center-block" style="width: 100%;height: 500px" id="dynamicChart"></div>
-        </div>
-        <hr class="featurette-divider">
-        <div class="row whitebox">
-            <h3 class="text-center"><strong>不良直播节目列表</strong></h3>
             <hr class="content-divider">
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                    <hr class="button-divider">
-                    <div class="caption">
-                        <h3 class="text-center">斗鱼专业色情主播</h3>
-                        <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                        <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                        <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                        <hr class="button-divider">
-                        <p><button class="btn btn-block btn-success">举报</button> </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                    <hr class="button-divider">
-                    <div class="caption">
-                        <h3 class="text-center">斗鱼专业色情主播</h3>
-                        <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                        <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                        <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                        <hr class="button-divider">
-                        <p><button class="btn btn-block btn-success">举报</button> </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                    <hr class="button-divider">
-                    <div class="caption">
-                        <h3 class="text-center">斗鱼专业色情主播</h3>
-                        <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                        <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                        <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                        <hr class="button-divider">
-                        <p><button class="btn btn-block btn-success">举报</button> </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                    <hr class="button-divider">
-                    <div class="caption">
-                        <h3 class="text-center">斗鱼专业色情主播</h3>
-                        <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                        <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                        <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                        <hr class="button-divider">
-                        <p><button class="btn btn-block btn-success">举报</button> </p>
-                    </div>
-                </div>
-            </div>
+            <div class="center-block" style="width: auto;height: 500px;margin: 0 20px" id="dynamicChart"></div>
         </div>
+    </div>
+    <div class="container">
+        <hr class="featurette-divider">
         <hr class="content-divider">
-        <div class="row whitebox">
-            <table  class="table text-center table-hover">
+        <div ng-switch="overviewTypeFlag" class="row whitebox">
+            <ul class="nav nav-tabs">
+                <li role="presentation" ng-class="{'nonlive':'active','live':''}[overviewTypeFlag]"><a ng-click="overviewSwitch('nonlive')" class="text-info" role="tab">不良资源检测列表</a></li>
+                <li role="presentation" ng-class="{'nonlive':'','live':'active'}[overviewTypeFlag]"><a ng-click="overviewSwitch('live')" class="text-info" role="tab">不良直播节目列表</a></li>
+            </ul>
+            <table ng-switch-when="nonlive" class="table text-center table-hover">
                 <caption class="text-center text-danger"><h3>不良资源检测列表</h3></caption>
                 <thead>
                 <tr>
@@ -112,6 +81,66 @@
                 </tr>
                 </tbody>
             </table>
+            <div ng-switch-when="live">
+                <h3 class="text-center"><strong>不良直播节目列表</strong></h3>
+                <hr class="content-divider">
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
+                        <hr class="button-divider">
+                        <div class="caption">
+                            <h3 class="text-center">斗鱼专业色情主播</h3>
+                            <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
+                            <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
+                            <p>类别：<span class="label label-warning pull-right">色情</span></p>
+                            <hr class="button-divider">
+                            <p><button class="btn btn-block btn-success">举报</button> </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
+                        <hr class="button-divider">
+                        <div class="caption">
+                            <h3 class="text-center">斗鱼专业色情主播</h3>
+                            <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
+                            <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
+                            <p>类别：<span class="label label-warning pull-right">色情</span></p>
+                            <hr class="button-divider">
+                            <p><button class="btn btn-block btn-success">举报</button> </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
+                        <hr class="button-divider">
+                        <div class="caption">
+                            <h3 class="text-center">斗鱼专业色情主播</h3>
+                            <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
+                            <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
+                            <p>类别：<span class="label label-warning pull-right">色情</span></p>
+                            <hr class="button-divider">
+                            <p><button class="btn btn-block btn-success">举报</button> </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
+                        <hr class="button-divider">
+                        <div class="caption">
+                            <h3 class="text-center">斗鱼专业色情主播</h3>
+                            <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
+                            <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
+                            <p>类别：<span class="label label-warning pull-right">色情</span></p>
+                            <hr class="button-divider">
+                            <p><button class="btn btn-block btn-success">举报</button> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <hr class="featurette-divider">
