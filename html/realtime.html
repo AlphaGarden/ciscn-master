@@ -24,8 +24,8 @@
                       <li><a ng-click="zonePicker('日本')">日本</a></li>
                   </ul>
                 </div>
-                <button type="button" class="btn btn-danger pull-right">暂停滚动</button>
-                <button type="button" class="btn btn-success pull-right" style="margin-right: 5px" >开始滚动</button>
+                <button type="button" ng-click="stopRolling()" ng-class="{true:'btn-default',false:'btn-danger'}[stratRollingFlag]" class="btn pull-right">滚动停止</button>
+                <button type="button" ng-click="startRolling()" ng-class="{true:'btn-success',false:'btn-default'}[stratRollingFlag]" class="btn  pull-right" style="margin-right: 5px" >滚动开始</button>
             </div>
             <hr class="button-divider">
         </div>

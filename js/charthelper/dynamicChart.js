@@ -105,7 +105,7 @@ $.get('http://localhost:63342/ciscn-master/json/life-expectancy.json', function 
             },
             xAxis: {
                 type: 'log',
-                name: '人均收入',
+                name: '时间',
                 max: 100000,
                 min: 300,
                 nameGap: 25,
@@ -122,12 +122,12 @@ $.get('http://localhost:63342/ciscn-master/json/life-expectancy.json', function 
                     }
                 },
                 axisLabel: {
-                    formatter: '{value} $'
+                    formatter: '{value} s'
                 }
             },
             yAxis: {
                 type: 'value',
-                name: '平均寿命',
+                name: '检测数目',
                 max: 100,
                 nameTextStyle: {
                     color: 'black',
@@ -142,7 +142,7 @@ $.get('http://localhost:63342/ciscn-master/json/life-expectancy.json', function 
                     show: false
                 },
                 axisLabel: {
-                    formatter: '{value} 岁'
+                    formatter: '{value} '
                 }
             },
             visualMap: [

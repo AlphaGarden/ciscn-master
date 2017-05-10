@@ -6,7 +6,7 @@ var eChart3 = echarts.init(document.getElementById("echart3"));
 eChart3.showLoading();
 $.get('http://localhost:63342/ciscn-master/xml/les-miserables.gexf', function (xml) {
     eChart3.hideLoading();
-
+    var series =[];
     var graph = echarts.dataTool.gexf.parse(xml);
     var categories = [];
     for (var i = 0; i < 4; i++) {
@@ -31,6 +31,34 @@ $.get('http://localhost:63342/ciscn-master/xml/les-miserables.gexf', function (x
         };
         node.category = node.attributes.modularity_class;
     });
+    series.push({
+        name: 'Les Miserables',
+        type: 'graph',
+        layout: 'none',
+        data: graph.nodes,
+        links: graph.links,
+        categories: categories,
+        roam: true,
+        label: {
+            normal: {
+                position: 'right',
+                formatter: '{b}'
+            }
+        },
+        effect: {
+            show: true,
+            period: 6,
+            trailLength: 0.7,
+            color: '#fff',
+            symbolSize: 3
+        },
+        lineStyle: {
+            normal: {
+                color: 'source',
+                curveness: 0.3
+            }
+        }
+    });
     option = {
         title: {
             text: 'Les Miserables',
@@ -45,31 +73,9 @@ $.get('http://localhost:63342/ciscn-master/xml/les-miserables.gexf', function (x
                 return a.name;
             })
         }],
-        animationDuration: 1500,
+        animationDuration: 3500,
         animationEasingUpdate: 'quinticInOut',
-        series : [
-            {
-                name: 'Les Miserables',
-                type: 'graph',
-                layout: 'none',
-                data: graph.nodes,
-                links: graph.links,
-                categories: categories,
-                roam: true,
-                label: {
-                    normal: {
-                        position: 'right',
-                        formatter: '{b}'
-                    }
-                },
-                lineStyle: {
-                    normal: {
-                        color: 'source',
-                        curveness: 0.3
-                    }
-                }
-            }
-        ]
+        series : series
     };
 
     eChart3.setOption(option);

@@ -1,38 +1,37 @@
 <!--概况模块-->
 <div>
-    <div class="container whitebox">
+    <div class="container center-block">
         <div class="row ">
             <h3 class="text-center text-info"><strong>系统状态</strong></h3>
+            <hr class="button-divider">
             <div class="col-md-4 text-info text-center">
                 <div class="">
                     <p  ><i class="glyphicon glyphicon-time"></i><strong>不良资源统计</strong></p>
                     <h2 ><strong>{{badResourceNum}}</strong></h2>
-                    <p><span style="color: lightseagreen"><strong>30%</strong></span> From last Week</p>
+                    <p><i class="glyphicon glyphicon-arrow-up"></i><span style="color: lightseagreen"><strong>30%</strong></span> From last Week</p>
                 </div>
             </div>
             <div class="col-md-4 text-info   text-center">
                 <div>
                     <p  ><i class="glyphicon glyphicon-time"></i><strong>不结点节点统计</strong></p>
                     <h2 ><strong>{{badNodeNum}}</strong></h2>
-                    <p><span class="text-warning"><strong>50%</strong></span> From last Week</p>
+                    <p><i class="glyphicon glyphicon-arrow-down"></i><span class="text-warning"><strong>50%</strong></span> From last Week</p>
                 </div>
             </div>
             <div class="col-md-4 text-info  text-center">
                 <div >
                     <p  ><i class="glyphicon glyphicon-time"></i><strong>不良直播统计</strong></p>
                     <h2 ><strong>{{badResourceNum}}</strong></h2>
-                    <p><span style="color: lightcoral"><strong>45%</strong></span> From last Week</p>
+                    <p><i class="glyphicon glyphicon-arrow-down"></i><span style="color: lightcoral"><strong>45%</strong></span> From last Week</p>
                 </div>
             </div>
         </div>
         <div class="row">
-            <hr class="content-divider">
             <div class="center-block" style="width: auto;height: 500px;margin: 0 20px" id="dynamicChart"></div>
         </div>
     </div>
     <div class="container">
         <hr class="featurette-divider">
-        <hr class="content-divider">
         <div ng-switch="overviewTypeFlag" class="row whitebox">
             <ul class="nav nav-tabs">
                 <li role="presentation" ng-class="{'nonlive':'active','live':''}[overviewTypeFlag]"><a ng-click="overviewSwitch('nonlive')" class="text-info" role="tab">不良资源检测列表</a></li>

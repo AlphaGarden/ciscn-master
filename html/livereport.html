@@ -4,233 +4,85 @@
         <hr class="content-divider">
     </div>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 animated fadeInRight" ng-repeat="item in liveRecord" >
             <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
+                <img style="cursor: pointer" ng-click="showDetail(item.liveId)" ng-srcset="{{item.src}}">
                 <hr class="button-divider">
                 <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
+                    <h3 class="text-center">{{item.title}}</h3>
+                    <p>直播平台：<span class="label label-info pull-right">{{item.platform}}</span></p>
+                    <P>捕获时间:{{item.capturetime}}</P>
+                    <p>在线观看人数：<span class="label label-danger pull-right">{{item.number}}</span></p>
+                    <p>类别：<span class="label label-warning pull-right">{{item.livetype}}</span></p>
                     <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
+                    <p ><button class="btn btn-block btn-success animated fadeIn">举报</button> </p>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                <hr class="button-divider">
-                <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                    <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                <hr class="button-divider">
-                <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                    <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                <hr class="button-divider">
-                <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                    <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                <hr class="button-divider">
-                <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                    <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                <hr class="button-divider">
-                <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                    <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                <hr class="button-divider">
-                <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                    <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                <hr class="button-divider">
-                <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                    <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                <hr class="button-divider">
-                <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                    <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                <hr class="button-divider">
-                <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                    <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                <hr class="button-divider">
-                <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                    <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                <hr class="button-divider">
-                <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                    <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                <hr class="button-divider">
-                <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                    <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                <hr class="button-divider">
-                <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                    <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                <hr class="button-divider">
-                <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                    <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <img src="../images/harmfulinfo/porn_128px_1075595_easyicon.net.png">
-                <hr class="button-divider">
-                <div class="caption">
-                    <h3 class="text-center">斗鱼专业色情主播</h3>
-                    <p>直播平台：<span class="label label-info pull-right">斗鱼</span></p>
-                    <p>在线观看人数：<span class="label label-danger pull-right">100000</span></p>
-                    <p>类别：<span class="label label-warning pull-right">色情</span></p>
-                    <hr class="button-divider">
-                    <p><button class="btn btn-block btn-success">举报</button> </p>
+        <!-- Modal -->
+        <div class="modal  fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title text-center text-info" id="myModalLabel"><strong>斗鱼TV</strong></h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row whitebox ">
+                            <div class="col-sm-4">
+                                <img class="center-block" src="../images/image_picture_128px_1187880_easyicon.net.png">
+                            </div>
+                            <div class="col-sm-2">
+                                <div><h4><strong>主播名称：</strong></h4></div>
+                                <div><h4><strong>房间号:</strong></h4></div>
+                                <div><h4><strong>捕获时间:</strong></h4></div>
+                                <div><h4><strong>观看人数:</strong></h4></div>
+                                <div><h4><strong>类别:</strong></h4></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div><h4><strong>苍老师</strong></h4></div>
+                                <div><h4><strong>live-001</strong></h4></div>
+                                <div><h4><strong>"Sun, 23 Apr 2017 09:44:35 GMT</strong></h4></div>
+                                <div><h4><strong class="label label-info">100098</strong></h4></div>
+                                <div><h4><strong class="label label-warning">色情</strong></h4></div>
+                            </div>
+                        </div>
+                        <hr class="button-divider">
+                        <div class="row whitebox">
+                            <h3 class="text-center text-warning"><strong>字幕特征</strong></h3>
+                            <div class="alert alert-success" role="alert">老司机快来，我报警了</div>
+                            <div class="alert alert-info" role="alert">这大尺度。。。。。</div>
+                            <div class="alert alert-warning" role="alert">快报警</div>
+                            <div class="alert alert-danger" role="alert">福利大放送</div>
+                        </div>
+                        <hr class="button-divider">
+                        <div class="row whitebox">
+                            <h3 class="text-center"><strong>捕获图片</strong></h3>
+                            <div class="col-xs-6 col-md-3">
+                                <a  class="thumbnail">
+                                    <img src="../images/image_picture_128px_1187880_easyicon.net.png" alt="...">
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-md-3">
+                                <a  class="thumbnail">
+                                    <img src="../images/image_picture_128px_1187880_easyicon.net.png" alt="...">
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-md-3">
+                                <a  class="thumbnail">
+                                    <img src="../images/image_picture_128px_1187880_easyicon.net.png" alt="...">
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-md-3">
+                                <a  class="thumbnail">
+                                    <img src="../images/image_picture_128px_1187880_easyicon.net.png" alt="...">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
                 </div>
             </div>
         </div>
