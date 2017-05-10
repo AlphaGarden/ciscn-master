@@ -446,4 +446,7 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
     $scope.showDetail= function () {
         $("#myModal").modal();
     }
+    $scope.showLiveDetail = function () {
+        $("#myModal2").modal();
+    }
 });

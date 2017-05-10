@@ -23,7 +23,20 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
 </head>
 <body>
-<div ng-app="myApp" ng-controller="navController" ng-cloak>
+<div id="loading">
+    <div id="loading-center">
+        <img id="logo" src="../images/shield_119.16786817714px_1199997_easyicon.net.png">
+        <h2 id="title-center"><strong>Loading...</strong></h2>
+        <div id="loading-center-absolute">
+            <div class="object" id="object_one"></div>
+            <div class="object" id="object_two" style="left:20px;"></div>
+            <div class="object" id="object_three" style="left:40px;"></div>
+            <div class="object" id="object_four" style="left:60px;"></div>
+            <div class="object" id="object_five" style="left:80px;"></div>
+        </div>
+    </div>
+</div>
+<div id="mainView" style="visibility: hidden" ng-app="myApp" ng-controller="navController" ng-cloak>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -43,7 +56,7 @@
                         </a>
                     </li>
                     <li><a ng-click="dashboard()" >功能面板</a></li>
-                <li><a>帮助</a></li>
+                    <li><a>帮助</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right notshow" ng-class="{true:'animated fadeIn',false:'notshow'}[logresponse]">
                     <li>
@@ -88,11 +101,11 @@
                     <li><a href="#/实时分析"><i class="glyphicon glyphicon-registration-mark pull-right"></i> 实时分析</a></li>
                 </ul>
                 <ul class="nav nav-sidebar">
-                <li><a href="#/资源屏蔽"><i class="glyphicon glyphicon-th-list pull-right"></i>资源屏蔽控制台</a></li>
-                <li><a href="#/结点屏蔽"><i class="glyphicon glyphicon-blackboard pull-right"></i>结点屏蔽控制台</a></li>
-                <li><a href="#/屏蔽历史"><i class="glyphicon glyphicon-time pull-right"></i> 屏蔽历史</a></li>
-                <li><a href="#/直播举报"><i class="glyphicon glyphicon-th-large pull-right"></i>直播举报</a> </li>
-            </ul>
+                    <li><a href="#/资源屏蔽"><i class="glyphicon glyphicon-th-list pull-right"></i>资源屏蔽控制台</a></li>
+                    <li><a href="#/结点屏蔽"><i class="glyphicon glyphicon-blackboard pull-right"></i>结点屏蔽控制台</a></li>
+                    <li><a href="#/屏蔽历史"><i class="glyphicon glyphicon-time pull-right"></i> 屏蔽历史</a></li>
+                    <li><a href="#/直播举报"><i class="glyphicon glyphicon-th-large pull-right"></i>直播举报</a> </li>
+                </ul>
                 <ul class="nav nav-sidebar">
                     <li><a href="#/报表导出"><i class="glyphicon glyphicon-list-alt pull-right"></i>报表导出</a></li>
                     <li><a href="#/系统统置"><i class="glyphicon glyphicon-cog pull-right"></i>系统设置</a></li>

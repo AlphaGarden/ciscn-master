@@ -5,12 +5,12 @@
     <div class="container">
         <div class="row">
             <div class="btn-group-lg" >
-                <button type="button" class="btn  btn-primary">色情不良信息</button>
-                <button type="button" class="btn  btn-warning">反动不良信息</button>
-                <button type="button" class="btn  btn-success">暴力不良信息</button>
-                <button type="button" class="btn  btn-info">文档</button>
-                <button type="button" class="btn  btn-primary">图像</button>
-                <button type="button" class="btn  btn-warning">视频</button>
+                <button type="button" class="btn" ng-click="breverse1()" ng-class="{true:'btn-primary',false:'btn-default'}[boption1]">色情不良信息</button>
+                <button type="button" class="btn" ng-click="breverse2()" ng-class="{true:'btn-warning',false:'btn-default'}[boption2]">反动不良信息</button>
+                <button type="button" class="btn" ng-click="breverse3()" ng-class="{true:'btn-success',false:'btn-default'}[boption3]">暴力不良信息</button>
+                <button type="button" class="btn" ng-click="breverse4()" ng-class="{true:'btn-info',false:'btn-default'}[boption4]">文档</button>
+                <button type="button" class="btn" ng-click="breverse5()" ng-class="{true:'btn-success',false:'btn-default'}[boption5]">图像</button>
+                <button type="button" class="btn" ng-click="breverse6()" ng-class="{true:'btn-warning',false:'btn-default'}[boption6]">视频</button>
                 <div class="btn-group">
                     <button  type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{pZone}} <span class="caret"></span>
@@ -66,7 +66,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h3 class="modal-title text-center text-info" id="myModalLabel"><strong>斗鱼TV</strong></h3>
+                        <h3 class="modal-title text-center text-info" id="myModalLabel"><strong>Ip地址：192.168.1.1</strong></h3>
                     </div>
                     <div class="modal-body">
                         <div class="row whitebox ">
