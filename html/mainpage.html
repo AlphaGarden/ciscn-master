@@ -81,10 +81,10 @@
                 </ul>
                 <form class="navbar-form navbar-right" ng-class="{false:'animated fadeIn',true:'notshow'}[logresponse]">
                     <div class="form-group">
-                        <input type="email" placeholder="Email" ng-bind="nUsername" class="form-control">
+                        <input type="text" placeholder="Email" ng-model="nUsername" class="form-control">
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Password" ng-bind="nPassword" class="form-control">
+                        <input type="password" placeholder="Password" ng-model="nPassword" class="form-control">
                     </div>
                     <button id="loginmsg"  ng-click="login()" class="btn btn-success" data-toggle="popover"  data-trigger="focus" >登录</button>
                 </form>
@@ -101,10 +101,10 @@
                     <li><a href="#/实时分析"><i class="glyphicon glyphicon-registration-mark pull-right"></i> 实时分析</a></li>
                 </ul>
                 <ul class="nav nav-sidebar">
-                    <li><a href="#/资源屏蔽"><i class="glyphicon glyphicon-th-list pull-right"></i>资源屏蔽控制台</a></li>
-                    <li><a href="#/结点屏蔽"><i class="glyphicon glyphicon-blackboard pull-right"></i>结点屏蔽控制台</a></li>
-                    <li><a href="#/屏蔽历史"><i class="glyphicon glyphicon-time pull-right"></i> 屏蔽历史</a></li>
-                    <li><a href="#/直播举报"><i class="glyphicon glyphicon-th-large pull-right"></i>直播举报</a> </li>
+                    <li><a ng-click="refreshResourceRecord()" href="#/资源屏蔽"><i class="glyphicon glyphicon-th-list pull-right"></i>资源屏蔽控制台</a></li>
+                    <li><a  href="#/结点屏蔽"><i class="glyphicon glyphicon-blackboard pull-right"></i>结点屏蔽控制台</a></li>
+                    <li><a  href="#/屏蔽历史"><i class="glyphicon glyphicon-time pull-right"></i> 屏蔽历史</a></li>
+                    <li><a ng-click="refreshLiveRecord()" href="#/直播举报"><i class="glyphicon glyphicon-th-large pull-right"></i>直播举报</a> </li>
                 </ul>
                 <ul class="nav nav-sidebar">
                     <li><a href="#/报表导出"><i class="glyphicon glyphicon-list-alt pull-right"></i>报表导出</a></li>

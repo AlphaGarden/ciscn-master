@@ -12,6 +12,15 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
     $scope.badLiveNum = 3145;
     $scope.pZone = "中国";
     $scope.btnflag = -1;
+    //filter info initialize
+    $scope.pornInfoFilter = true;
+    $scope.antiInfoFilter = true;
+    $scope.violenceFilter = true;
+    $scope.textFilter = true;
+    $scope.imgaeFilter = true;
+    $scope.videoFilter = true;
+    $scope.pageFilter = 1;
+    $scope.timeFilter = '2017';
     $scope.toggleshow= function () {
         $scope.isover= true;
 
@@ -25,23 +34,28 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
     $scope.notpulse = function () {
         $scope.pulseflag = false;
     };
+
+    $scope.nUsername = "";
+    $scope.nPassword= "";
     $scope.login = function () {
         $http({
-            method: 'GET',
-            url: 'http://123.207.219.224:8007/dht/resource_text/?format=json'
+            method: 'POST',
+            url: 'http://222.210.113.66:8000/dht/user_login/',
+            data:{'username':$scope.nUsername,'password':$scope.nPassword}
         }).then(function successCallback(response) {
             // this callback will be called asynchronously
             // when the response is available
             alert(response.data);
-        }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
             $('#loginmsg').popover(
                 {
                     title:$scope.loginResponseTitle,
                     content:$scope.loginResponseContent,
                     placement:"bottom",
                 });
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+
         });
         $scope.loginResponseTitle = "错误";
         $scope.loginResponseContent = "你的密码不正确，请核对你的账号和密码是否匹配。如果疑问请联系系统管理员";
@@ -69,6 +83,56 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
     $scope.btnhide = function () {
         $scope.btnflag = -1;//Not matching any media,so hide that button blcok
     };
+    // TODO
+
+    $scope.refreshHistoryNodeRecord = function () {
+        $http({
+            method: 'GET',
+            url: 'http://222.210.113.66:8000/dht/resourceRecord/',
+            params:{
+                'showPornInfo':$scope.pornInfoFilter,
+                'showAntiInfo':$scope.antiInfoFilter,
+                'showViolenceInfo':$scope.violenceFilter,
+                'showText':$scope.textFilter,
+                'showImage':$scope.imgaeFilter,
+                'showVideo':$scope.videoFilter,
+                'area':$scope.pZone,
+                'page':$scope.pageFilter,
+                'time':$scope.timeFilter
+            }
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            alert(response.data);
+            $scope.historyNodeRecord = response.data;
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+
+        });
+    }
+    $scope.historyNodeRecord=[
+        {
+            'ip':'114.117.194.0',
+            'title':'Ip地址:114.117.194.0',
+            'src':'../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png',
+            'belonging':'四川成都市',
+            'captureTime':'Sun, 23 Apr 2017 09:42:35 GMT',
+            'blockTime':'Sun, 23 Apr 2017 09:45:35 GMT',
+            'keywords':['女优','法轮功','恐怖袭击']
+        },
+        {
+            'ip':'114.117.194.0',
+            'title':'Ip地址:114.117.194.0',
+            'src':'../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png',
+            'belonging':'江苏南京市',
+            'captureTime':'Sun, 23 Apr 2017 09:42:35 GMT',
+            'blockTime':'Sun, 23 Apr 2017 09:45:35 GMT',
+            'keywords':['韩国少女情怀','叙利亚战争','恐怖袭击']
+        }
+    ];
+
+
 
     //overview page
     $scope.overviewSwitch = function (flag) {
@@ -80,44 +144,346 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
         $scope.realtimeTypeFlag = flag;
     };
 
-    $scope.resourcerecord=[
-        {
-            "id":"resource-001",
-            "ip":"114.117.194.0",
-            "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
-            "heading":"Ip地址:114.117.194.0",
-            "belonging":"归属地：四川成都市",
-            "capturetime":"捕获时间:Sun, 23 Apr 2017 09:42:35 ",
-            "resourcename":"资源名：超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿",
-            "resourcetype":"视频文件",
-            "classfystandard":"色情",
-            "labeltype":ramdonlabelclasspicker.pick()
-        },
-        {
-            "id":"resource-002",
-            "ip":"114.117.194.1",
-            "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
-            "heading":"Ip地址:114.117.194.1",
-            "belonging":"归属地：四川成都市",
-            "capturetime":"捕获时间:Sun, 23 Apr 2017 09:42:35 ",
-            "resourcename":"资源名：超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿",
-            "resourcetype":"视频文件",
-            "classfystandard":"色情",
-            "labeltype":ramdonlabelclasspicker.pick()
-        },
-        {
-            "id":"resource-003",
-            "ip":"114.117.194.2",
-            "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
-            "heading":"Ip地址:114.117.194.2",
-            "belonging":"归属地：四川成都市",
-            "capturetime":"捕获时间:Sun, 23 Apr 2017 09:42:35 ",
-            "resourcename":"资源名：超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿",
-            "resourcetype":"视频文件",
-            "classfystandard":"色情",
-            "labeltype":ramdonlabelclasspicker.pick()
+    $scope.refreshResourceRecord =function () {
+        $http({
+            method: 'GET',
+            url: 'http://222.210.113.66:8000/dht/resourceRecord/',
+            params:{
+                'showPornInfo':$scope.pornInfoFilter,
+                'showAntiInfo':$scope.antiInfoFilter,
+                'showViolenceInfo':$scope.violenceFilter,
+                'showText':$scope.textFilter,
+                'showImage':$scope.imgaeFilter,
+                'showVideo':$scope.videoFilter,
+                'area':$scope.pZone,
+                'page':$scope.pageFilter,
+                'time':$scope.timeFilter
+            }
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            alert(response.data);
+            $scope.resourcerecord = response.data;
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+
+        });
+    };
+
+    $scope.refreshNodeRecord = function () {
+        $http({
+            method: 'GET',
+            url: 'http://222.212.253.65:8000/dht/nodeRecord/',
+            params:{
+                'showPornInfo':$scope.pornInfoFilter,
+                'showAntiInfo':$scope.antiInfoFilter,
+                'showViolenceInfo':$scope.violenceFilter,
+                'area':$scope.pZone,
+                'page':$scope.pageFilter,
+                'time':$scope.timeFilter
+            }
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            // alert(response.data);
+            alert(response.data);
+            $scope.noderecord = response.data;
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+
+        });
+    };
+    $scope.refreshLiveRecord= function () {
+        $http({
+            method: 'GET',
+            url: 'http://222.210.113.66:8000/dht/user_login/'
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            alert(response.data);
+            $scope.liveRecord = response.data;
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+
+        });
+    };
+    $scope.refreshHistoryRecord = function () {
+        $http({
+            method: 'GET',
+            url: 'http://222.210.113.66:8000/dht/user_login/',
+            params:{
+                'showPornInfo':$scope.pornInfoFilter,
+                'showAntiInfo':$scope.antiInfoFilter,
+                'showViolenceInfo':$scope.violenceFilter,
+                'showText':$scope.textFilter,
+                'showImage':$scope.imgaeFilter,
+                'showVideo':$scope.videoFilter,
+                'area':$scope.pZone,
+                'page':$scope.pageFilter,
+                'time':$scope.timeFilter
+            }
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            $scope.noderecord = response.data;
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+
+        });
+    }
+
+    //rolling module
+    var stop = undefined;
+    $scope.startRolling =  function () {
+        $scope.stratRollingFlag = true;
+        //Prevent starting a new roll
+        if(angular.isDefined(stop))
+            return;
+         stop= $interval(function () {
+            if($scope.realtimeTypeFlag=='nonlive'){
+                var noneliveItem ;
+                $http({
+                    method: 'GET',
+                    url: 'http://222.210.113.66:8000/dht/user_login/',
+                    params:{
+                        'showPornInfo':$scope.pornInfoFilter,
+                        'showAntiInfo':$scope.antiInfoFilter,
+                        'showViolenceInfo':$scope.violenceFilter,
+                        'showText':$scope.textFilter,
+                        'showImage':$scope.imgaeFilter,
+                        'showVideo':$scope.videoFilter,
+                        'area':$scope.pZone,
+                        'page':$scope.pageFilter,
+                        'time':$scope.timeFilter
+                    }
+                }).then(function successCallback(response) {
+                    // this callback will be called asynchronously
+                    // when the response is available
+                    alert(response.data);
+                    noneliveItem= response.data;
+                }, function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+
+                });
+                //Insert an record into the first place of the array
+                $scope.realtimeNonLiveRecord.splice(0,0,noneliveItem);
+            }else {
+                var liveItem ;
+                $http({
+                    method: 'GET',
+                    url: 'http://222.210.113.66:8000/dht/user_login/'
+                }).then(function successCallback(response) {
+                    // this callback will be called asynchronously
+                    // when the response is available
+                    alert(response.data);
+                    liveItem= response.data;
+                }, function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+
+                });
+                //Insert an record into the first place of the array
+                $scope.realtimeLiveRecord.splice(0,0,liveItem);
+            }
+        },5000);
+    }
+    $interval(function () {
+        $scope.badResourceNum +=1;
+        $scope.badNodeNum +=1;
+        $scope.badLiveNum +=1;
+        },1000);
+    $scope.stopRolling = function () {
+        $scope.stratRollingFlag = false;
+        if(angular.isDefined(stop)){
+            $interval.cancel(stop);
+            stop = undefined;
+        }
+    };
+
+    $scope.labels=[
+        {"class":"label label-default animated fadeIn",
+            "content":"label1"},
+        {"class":"label label-danger animated fadeIn",
+            "content":"label2"},
+        {"class":"label label-success animated fadeIn",
+            "content":"label3"
         }
     ];
+    $scope.addlabel = function () {
+        $scope.labels.push(
+            {"class":"label label-primary animated fadeIn",
+                "content":"label4"
+            }
+        );
+    };
+
+    //Zone Picker
+    $scope.zonePicker = function (zone) {
+        $scope.pZone =zone;
+    };
+    //button style reverse module
+    $scope.boption1 =true;
+    $scope.boption2 =true;
+    $scope.boption3 =true;
+    $scope.boption4 =true;
+    $scope.boption5 =true;
+    $scope.boption6 =true;
+    $scope.stratRollingFlag = false;
+    //porn info button
+    $scope.breverse1 = function () {
+        if($scope.boption1){
+            $scope.boption1 = false;
+            $scope.pornInfoFilter = false;
+
+        }else{
+            $scope.boption1 = true;
+            $scope.pornInfoFilter = true;
+        }
+    };
+    //Anti info button
+    $scope.breverse2 = function () {
+        if($scope.boption2){
+            $scope.boption2 = false;
+            $scsope.antiInfoFilter = false;
+        }else{
+            $scope.boption2 = true;
+            $scope.antiInfoFilter = true;
+        }
+    };
+    //violence info button
+    $scope.breverse3 = function () {
+        if($scope.boption3){
+            $scope.boption3 = false;
+            $scope.violenceFilter = false;
+        }else{
+            $scope.boption3 = true;
+            $scope.antiInfoFilter = true;
+        }
+    };
+    //Text option button
+    $scope.breverse4 = function () {
+        if($scope.boption4){
+            $scope.boption4 = false;
+            $scope.textFilter = false;
+        }else{
+            $scope.boption4 = true;
+            $scope.textFilter = true;
+        }
+    };
+    //image option button
+    $scope.breverse5 = function () {
+        if($scope.boption5){
+            $scope.boption5 = false;
+            $scope.imgaeFilter = false;
+        }else{
+            $scope.boption5 = true;
+            $scope.imgaeFilter = true;
+        }
+    };
+    //video option button
+    $scope.breverse6 = function () {
+        if($scope.boption6){
+            $scope.boption6 = false;
+            $scope.videoFilter = false;
+        }else{
+            $scope.boption6 = true;
+            $scope.videoFilter = true;
+        }
+    };
+    //
+    $scope.showResourceDetailModal= function (index) {
+        $http({
+            method: 'GET',
+            url: '',
+            params:{
+                'id':index,
+                'showPornInfo':$scope.pornInfoFilter,
+                'showAntiInfo':$scope.antiInfoFilter,
+                'showViolenceInfo':$scope.violenceFilter,
+                'showText':$scope.textFilter,
+                'showImage':$scope.imgaeFilter,
+                'showVideo':$scope.videoFilter,
+                'area':$scope.pZone,
+                'page':$scope.pageFilter,
+                'time':$scope.timeFilter
+            }
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            alert(response.data);
+            $scope.resourceDetail = response.data;
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+
+        });
+        $("#resourceModal").modal();
+    };
+    $scope.showLiveDetailMoal = function (index) {
+        $http({
+            method: 'GET',
+            url: '',
+            params:{
+                'liveId':index
+            }
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            $scope.liveDetail = response.data;
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+
+        });
+        $("#liveModal").modal();
+    };
+
+    $scope.showNodeDetailModal = function (index) {
+        $http({
+            method: 'GET',
+            url: '',
+            params:{
+                'ip':index,
+                'showPornInfo':$scope.pornInfoFilter,
+                'showAntiInfo':$scope.antiInfoFilter,
+                'showViolenceInfo':$scope.violenceFilter,
+                'showText':$scope.textFilter,
+                'showImage':$scope.imgaeFilter,
+                'showVideo':$scope.videoFilter,
+                'area':$scope.pZone,
+                'page':$scope.pageFilter,
+                'time':$scope.timeFilter
+            }
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            alert(response.data);
+            $scope.nodeDetail = response.data;
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+
+        });
+        $("#nodeModal").modal();
+    }
+
+//    Test info
+    $scope.liveDetail = {
+        'host':'苍老师',
+        "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
+        'room':'live-001',
+        'captureTime':'Sun, 23 Apr 2017 09:44:35 GMT',
+        'watchNum':'100098',
+        'classification':'色情',
+        'textCharacter':['老司机快来，我报警了','这大尺度。。。。。','快报警'],
+        'imageCharacter':['http://localhost:63342/ciscn-master/images/image_picture_128px_1187880_easyicon.net.png','http://localhost:63342/ciscn-master/images/hotspot_128px_1114554_easyicon.net.png']
+
+    }
     $scope.noderecord = [
         {
             "ip":"114.117.194.0",
@@ -152,7 +518,57 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
             "vionum":"452",
             "feature":["法轮功","叙利亚战争","恐怖袭击"]
         }
-        ];
+    ];
+    $scope.nodeDetail = [
+        {
+            "id":"resource-001",
+            "ip":"114.117.194.0",
+            "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
+            "heading":"Ip地址:114.117.194.0",
+            "belonging":"归属地：四川成都市",
+            "capturetime":"捕获时间:Sun, 23 Apr 2017 09:42:35 ",
+            "resourcename":"资源名：超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿",
+            "resourcetype":"视频文件",
+            "classfystandard":"色情",
+            "labeltype":ramdonlabelclasspicker.pick()
+        },
+        {
+            "id":"resource-002",
+            "ip":"114.117.194.0",
+            "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
+            "heading":"Ip地址:114.117.194.1",
+            "belonging":"归属地：四川成都市",
+            "capturetime":"捕获时间:Sun, 23 Apr 2017 09:42:35 ",
+            "resourcename":"资源名：超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿",
+            "resourcetype":"视频文件",
+            "classfystandard":"色情",
+            "labeltype":ramdonlabelclasspicker.pick()
+        },
+        {
+            "id":"resource-003",
+            "ip":"114.117.194.0",
+            "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
+            "heading":"Ip地址:114.117.194.2",
+            "belonging":"归属地：四川成都市",
+            "capturetime":"捕获时间:Sun, 23 Apr 2017 09:42:35 ",
+            "resourcename":"资源名：超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿",
+            "resourcetype":"视频文件",
+            "classfystandard":"色情",
+            "labeltype":ramdonlabelclasspicker.pick()
+        }
+    ];
+    $scope.resourceDetail = {
+        'id':'resource-001',
+        'title':'Ip地址：192.168.1.1',
+        'titleImage':'../images/image_picture_128px_1187880_easyicon.net.png',
+        'belonging':'四川成都',
+        'cpatureTime':'"Sun, 23 Apr 2017 09:44:35 GMT',
+        'fileType':'视频文件',
+        'classificationType':'色情',
+        'name':'超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多 小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多 小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿',
+        'textCharacter':['老司机快来，我报警了','这大尺度。。。。。','快报警','福利大放送'],
+        'imgaeCharacter':['http://localhost:63342/ciscn-master/images/image_picture_128px_1187880_easyicon.net.png','http://localhost:63342/ciscn-master/images/hotspot_128px_1114554_easyicon.net.png']
+    };
     $scope.realtimeNonLiveRecord=[
         {
             "id":"resource-001",
@@ -202,6 +618,7 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
     ];
     $scope.realtimeLiveRecord=[
         {
+            'liveId':'live-001',
             "src":"../images/harmfulinfo/porn_128px_1075595_easyicon.net.png",
             "title":"斗鱼专业色情主播",
             "capturetime":"Sun, 23 Apr 2017 09:44:35 GMT",
@@ -211,6 +628,7 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
 
         },
         {
+            'liveId':'live-002',
             "src":"../images/harmfulinfo/porn_128px_1075595_easyicon.net.png",
             "title":"斗鱼专业色情主播",
             "capturetime":"Sun, 23 Apr 2017 09:44:35 GMT",
@@ -220,6 +638,7 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
 
         },
         {
+            'liveId':'live-003',
             "src":"../images/harmfulinfo/porn_128px_1075595_easyicon.net.png",
             "title":"斗鱼专业色情主播",
             "capturetime":"Sun, 23 Apr 2017 09:44:35 GMT",
@@ -229,6 +648,7 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
 
         },
         {
+            'liveId':'live-001',
             "src":"../images/harmfulinfo/porn_128px_1075595_easyicon.net.png",
             "title":"斗鱼专业色情主播",
             "capturetime":"Sun, 23 Apr 2017 09:44:35 GMT",
@@ -285,74 +705,6 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
             "livetype":"色情"
         }
     ];
-
-    //rolling module
-    var stop = undefined;
-    $scope.startRolling =  function () {
-        $scope.stratRollingFlag = true;
-        //Prevent starting a new roll
-        if(angular.isDefined(stop))
-            return;
-         stop= $interval(function () {
-            var noneliveItem = {
-                "recordtype":"nonlive",
-                "id":"resource-002",
-                "ip":"114.117.194.0",
-                "src":"../images/infobar/text_lines_51.658703071672px_1205974_easyicon.net.png",
-                "title":"114.117.194.0",
-                "belonging":"江苏南京市",
-                "capturetime":"Sun, 23 Apr 2017 09:44:35 GMT",
-                "filename":"www.henduofuli.net发布，每日更新 | 韩国WINTV女主播 大尺度视讯 按姓名分类 [127G大合集 磁力链接]",
-                "filetype":["文本文件","种子文件"],
-                "classification":["色情"]
-            };
-            var liveItem = {
-                "src":"../images/harmfulinfo/porn_128px_1075595_easyicon.net.png",
-                "title":"斗鱼专业色情主播",
-                "capturetime":"Sun, 23 Apr 2017 09:44:35 GMT",
-                "platform":"斗鱼tv",
-                "number":"10092",
-                "livetype":"色情"
-            };
-            if($scope.realtimeTypeFlag=='nonlive'){
-                //Insert an record into the first place of the array
-                $scope.realtimeNonLiveRecord.splice(0,0,noneliveItem);
-            }else {
-                //Insert an record into the first place of the array
-                $scope.realtimeLiveRecord.splice(0,0,liveItem);
-            }
-        },5000);
-    }
-    $interval(function () {
-        $scope.badResourceNum +=1;
-        $scope.badNodeNum +=1;
-        $scope.badLiveNum +=1;
-        },1000);
-    $scope.stopRolling = function () {
-        $scope.stratRollingFlag = false;
-        if(angular.isDefined(stop)){
-            $interval.cancel(stop);
-            stop = undefined;
-        }
-    };
-
-    $scope.labels=[
-        {"class":"label label-default animated fadeIn",
-            "content":"label1"},
-        {"class":"label label-danger animated fadeIn",
-            "content":"label2"},
-        {"class":"label label-success animated fadeIn",
-            "content":"label3"
-        }
-    ];
-    $scope.addlabel = function () {
-        $scope.labels.push(
-            {"class":"label label-primary animated fadeIn",
-                "content":"label4"
-            }
-        );
-    };
-
     $scope.records=[
         {
             "src":"../images/pie_chart_128px_1207526_easyicon.net.png",
@@ -388,65 +740,5 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
             "btn":"View Detail"
         }
     ];
-    //Zone Picker
-    $scope.zonePicker = function (zone) {
-        $scope.pZone =zone;
-    };
-    //button style reverse module
-    $scope.boption1 =true;
-    $scope.boption2 =true;
-    $scope.boption3 =true;
-    $scope.boption4 =true;
-    $scope.boption5 =true;
-    $scope.boption6 =true;
-    $scope.stratRollingFlag = false;
-    $scope.breverse1 = function () {
-        if($scope.boption1){
-            $scope.boption1 = false;
-        }else{
-            $scope.boption1 = true;
-        }
-    };
-    $scope.breverse2 = function () {
-        if($scope.boption2){
-            $scope.boption2 = false;
-        }else{
-            $scope.boption2 = true;
-        }
-    };
-    $scope.breverse3 = function () {
-        if($scope.boption3){
-            $scope.boption3 = false;
-        }else{
-            $scope.boption3 = true;
-        }
-    };
-    $scope.breverse4 = function () {
-        if($scope.boption4){
-            $scope.boption4 = false;
-        }else{
-            $scope.boption4 = true;
-        }
-    };
-    $scope.breverse5 = function () {
-        if($scope.boption5){
-            $scope.boption5 = false;
-        }else{
-            $scope.boption5 = true;
-        }
-    };
-    $scope.breverse6 = function () {
-        if($scope.boption6){
-            $scope.boption6 = false;
-        }else{
-            $scope.boption6 = true;
-        }
-    };
-    //Live show Deatail
-    $scope.showDetail= function () {
-        $("#myModal").modal();
-    }
-    $scope.showLiveDetail = function () {
-        $("#myModal2").modal();
-    }
+
 });

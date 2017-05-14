@@ -8,9 +8,6 @@
                 <button type="button" class="btn" ng-click="breverse1()" ng-class="{true:'btn-primary',false:'btn-default'}[boption1]">色情不良信息</button>
                 <button type="button" class="btn" ng-click="breverse2()" ng-class="{true:'btn-warning',false:'btn-default'}[boption2]">反动不良信息</button>
                 <button type="button" class="btn" ng-click="breverse3()" ng-class="{true:'btn-success',false:'btn-default'}[boption3]">暴力不良信息</button>
-                <button type="button" class="btn" ng-click="breverse4()" ng-class="{true:'btn-info',false:'btn-default'}[boption4]">文档</button>
-                <button type="button" class="btn" ng-click="breverse5()" ng-class="{true:'btn-success',false:'btn-default'}[boption5]">图像</button>
-                <button type="button" class="btn" ng-click="breverse6()" ng-class="{true:'btn-warning',false:'btn-default'}[boption6]">视频</button>
                 <div class="btn-group">
                     <button  type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{pZone}} <span class="caret"></span>
@@ -25,6 +22,7 @@
                     </ul>
                 </div>
                 <button type="button" class="btn btn-warning pull-right">全部选择</button>
+                <button type="button" ng-click="refreshNodeRecord()" class="btn btn-success pull-right" style="margin-right: 5px"><i class="glyphicon glyphicon-refresh"></i>刷新</button>
             </div>
 
             <hr class="button-divider">
@@ -36,8 +34,8 @@
             <div class="media-list">
                 <div ng-repeat="item in noderecord" ng-mouseover="btnshow($index)" ng-mouseleave="btnhide()" class="media animated fadeInRight">
                     <div class="media-left">
-                        <a href="#">
-                            <img class="media-object" ng-src="{{item.src}}" alt="img">
+                        <a>
+                            <img ng-click="showNodeDetailModal(item)" class="media-object" ng-src="{{item.src}}" alt="img">
                         </a>
                     </div>
                     <div class="media-body">
@@ -45,7 +43,6 @@
                             <strong>Ip地址:{{item.heading}}</strong>
                             <div ng-show="btnflag==$index" class="btn-group-sm pull-right animated fadeIn">
                                 <button type="button" marknode tag="{{item.ip}}" class="btn  btn-warning">标记节点</button>
-                                <button type="button" ng-click="hidenodeitem($index)" class="btn  btn-success">忽略</button>
                             </div>
                         </h4>
                         <p>归属地：{{item.belonging}}</p>
@@ -62,5 +59,134 @@
             <hr class="button-divider">
             <button type="button"  data-ng-click="stop()" class="btn btn-block btn-danger"><strong>确认屏蔽</strong></button>
         </div>
+        <!-- Modal1 -->
+        <div class="modal  fade" id="nodeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel"><strong>IP:128.118.255.255 四川成都</strong></h4>
+                    </div>
+                    <div class="modal-body">
+                        <!--屏蔽模块-->
+                        <div>
+                            <h3 class="text-center"><strong>资源屏蔽历史控制台</strong></h3>
+                            <hr class="content-divider">
+
+                            <div class="row">
+                                <div class="btn-group-lg" >
+                                    <button type="button" class="btn" ng-click="breverse1()" ng-class="{true:'btn-primary',false:'btn-default'}[boption1]">色情不良信息</button>
+                                    <button type="button" class="btn" ng-click="breverse2()" ng-class="{true:'btn-warning',false:'btn-default'}[boption2]">反动不良信息</button>
+                                    <button type="button" class="btn" ng-click="breverse3()" ng-class="{true:'btn-success',false:'btn-default'}[boption3]">暴力不良信息</button>
+                                    <button type="button" class="btn" ng-click="breverse4()" ng-class="{true:'btn-info',false:'btn-default'}[boption4]">文档</button>
+                                    <button type="button" class="btn" ng-click="breverse5()" ng-class="{true:'btn-success',false:'btn-default'}[boption5]">图像</button>
+                                    <button type="button" class="btn" ng-click="breverse6()" ng-class="{true:'btn-warning',false:'btn-default'}[boption6]">视频</button>
+                                    <div class="btn-group">
+                                        <button  type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{pZone}} <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a ng-click="zonePicker('中国')">中国</a></li>
+                                            <li><a ng-click="zonePicker('美国')">美国</a></li>
+                                            <li><a ng-click="zonePicker('意大利')">意大利</a></li>
+                                            <li><a ng-click="zonePicker('韩国')">韩国</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a ng-click="zonePicker('日本')">日本</a></li>
+                                        </ul>
+                                    </div>
+                                    <button type="button" class="btn btn-success pull-right"><i class="glyphicon glyphicon-refresh">刷新</i></button>
+                                </div>
+
+                                <hr class="button-divider">
+
+                            </div>
+                            <hr class="content-divider">
+                            <!--Main content-->
+                            <div class="row">
+                                <div class="media-list" ng-repeat="item in nodeDetail">
+                                    <div class="media animated fadeInRight" id="{{$index}}" ng-mouseover="btnshow($index)" ng-mouseleave="btnhide()">
+                                        <div class="media-left">
+                                            <a>
+                                                <img ng-click="showResourceDetailModal(item.id)" class="media-object" ng-srcset="{{item.src}}" alt="img">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">
+                                                <strong>{{item.heading}}</strong>
+                                                <div ng-show="btnflag==$index" class="btn-group-sm animated fadeIn pull-right">
+                                                    <button type="button" marksource tag="{{item.id}}" class="btn  btn-warning">标记资源</button>
+                                                    <button type="button" marknode tag="{{item.ip}}"  class="btn  btn-danger">标记结点</button>
+                                                </div>
+                                            </h4>
+                                            <p>{{item.belonging}}</p>
+                                            <P>{{item.capturetime}}</P>
+                                            <p>{{item.resourcename}}</p>
+                                            <p>文件类型:<span class={{item.labeltype}}>{{item.resourcetype}}</span></p>
+                                            <p>分类标准：<span class={{item.labeltype}}>{{item.classfystandard}}</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="button-divider">
+                                <button type="button" class="btn btn-block btn-danger"><strong>确认屏蔽</strong></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Modal2 resouce-->
+        <div class="modal  fade" id="resourceModal" tabindex="-2" role="dialog" aria-labelledby="myModalLabel2">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title text-center text-info" id="myModalLabel2"><strong>{{resourceDetail.title}}</strong></h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row whitebox ">
+                            <div class="col-sm-4">
+                                <img  class="center-block" ng-srcset="{{resourceDetail.titleImage}}">
+                            </div>
+                            <div class="col-sm-2">
+                                <div><h4><strong>归属地:</strong></h4></div>
+                                <div><h4><strong>捕获时间:</strong></h4></div>
+                                <div><h4><strong>文件类型:</strong></h4></div>
+                                <div><h4><strong>类别:</strong></h4></div>
+                                <div><h4><strong>资源名称：</strong></h4></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div><h4><strong>{{resourceDetail.belonging}}</strong></h4></div>
+                                <div><h4><strong>{{resourceDetail.cpatureTime}}</strong></h4></div>
+                                <div><h4><strong class="label label-info">{{resourceDetail.fileType}}</strong></h4></div>
+                                <div><h4><strong class="label label-warning">{{resourceDetail.classificationType}}</strong></h4></div>
+                                <div><h4><strong>{{resourceDetail.name}}</strong></h4></div>
+                            </div>
+                        </div>
+                        <hr class="button-divider">
+                        <div class="row whitebox">
+                            <h3 class="text-center text-warning"><strong>文字特征</strong></h3>
+                            <div class="alert alert-info" role="alert" ng-repeat="item in resourceDetail.textCharacter">{{item}}</div>
+                        </div>
+                        <hr class="button-divider">
+                        <div class="row whitebox">
+                            <h3 class="text-center"><strong>捕获图片</strong></h3>
+                            <div class="col-xs-6 col-md-3" ng-repeat="item in resourceDetail.imgaeCharacter">
+                                <a  class="thumbnail">
+                                    <img ng-srcset="{{item}}" alt="...">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" ng-click="hideModal2Detail()">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

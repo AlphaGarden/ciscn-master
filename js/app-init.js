@@ -2,7 +2,7 @@
  * Created by garden on 17-4-13.
  */
 //set loading page whilte loading the page
-setTimeout("$('#loading').addClass('animated fadeOut');$('#mainView').attr('style','');",3000);
+setTimeout("$('#loading').attr('style','display:none');$('#mainView').attr('style','');",3000);
 
 var app = angular.module("myApp",['ngRoute']);
 
