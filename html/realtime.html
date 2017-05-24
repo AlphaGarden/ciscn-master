@@ -51,6 +51,7 @@
                             <div ng-show="btnflag==$index" class="btn-group-sm pull-right animated fadeIn">
                                 <button type="button" tag="{{item.id}}" marksource class="btn  btn-warning">标记资源</button>
                                 <button type="button" tag="{{item.ip}}" marknode class="btn  btn-danger">标记结点</button>
+                                <button type="button" ng-click="hideresourceitem($index)"  class="btn  btn-success">忽略</button>
                             </div>
                         </h4>
                         <p>归属地：{{item.belonging}}</p>
@@ -63,12 +64,12 @@
             </div>
         </div>
         <!--Model for nonlive resource-->
-        <div class="resourceModal  fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal  fade" id="resourceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h3 class="modal-title text-center text-info" id="myModalLabel"><strong>Ip地址：192.168.1.1</strong></h3>
+                        <h3 class="modal-title text-center text-info" id="myModalLabel"><strong>{{resourceDetail.title}}</strong></h3>
                     </div>
                     <div class="modal-body">
                         <div class="row whitebox ">

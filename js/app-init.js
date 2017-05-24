@@ -30,6 +30,8 @@ app.service('ramdonlabelclasspicker', function() {
 
  var resourcemarklist= [];
  var nodemarklist = [];
+ var cancelResourceMarkList=[];
+ var cancelNodeMarkList = [];
 //Angular command
 app.directive("marksource",function () {
     return{
@@ -71,4 +73,45 @@ app.directive("marknode",function () {
         }
     }
 });
+app.directive("cancelMarkReource",function () {
+    return{
+        restrict:"A",
+        link: function ($scope,elem,attrs) {
+            var index;
+            $(elem).click(function () {
+                index = $.inArray(attrs.tag,cancelResourceMarkList);
+                //当前资源存在标记列表中
+                if(index != -1){
+                    $(this).parent().parent().parent().parent().removeClass("cancelresourcemark");
+                    cancelResourceMarkList.splice(index,1);
+                }else{
+                    //当前资源不存在标记列表中
+                    $(this).parent().parent().parent().parent().addClass("cancelresourcemark");
+                    cancelResourceMarkList.push(attrs.tag);
+                }
+            })
+        }
+    }
+});
+app.directive("cancelMarkNode",function () {
+    return{
+        restrict:"A",
+        link:function ($scope,elem,attrs) {
+            var index;
+            $(elem).click(function () {
+                index = $.inArray(attrs.tag,cancelNodeMarkList);
+                //当前结点存在标记列表中
+                if(index != -1){
+                    $(this).parent().parent().parent().parent().removeClass("cancelnodemark");
+                    cancelNodeMarkList.splice(index,1);
+                }else{
+                    //当前结点不在标记列表中
+                    $(this).parent().parent().parent().parent().addClass("cancelnodemark");
+                    cancelNodeMarkList.push(attrs.tag);
+                }
+            })
+        }
+    }
+});
+
 // Global array list

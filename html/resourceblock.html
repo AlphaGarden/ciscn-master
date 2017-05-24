@@ -37,7 +37,7 @@
                 <div class="media animated fadeInRight" id="{{$index}}" ng-mouseover="btnshow($index)" ng-mouseleave="btnhide()">
                     <div class="media-left">
                         <a>
-                            <img ng-click="showResourceDetail(item.id)" class="media-object" ng-srcset="{{item.src}}" alt="img">
+                            <img ng-click="showResourceDetailModal(item.id)" class="media-object" ng-srcset="{{item.src}}" alt="img">
                         </a>
                     </div>
                     <div class="media-body">
@@ -45,8 +45,7 @@
                             <strong>{{item.heading}}</strong>
                             <div ng-show="btnflag==$index" class="btn-group-sm animated fadeIn pull-right">
                                 <button type="button" marksource tag="{{item.id}}" class="btn  btn-warning">标记资源</button>
-                                <button type="button" marknode tag="{{item.ip}}"  class="btn  btn-danger">标记结点</button>
-                                <button type="button" ng-click="hideresourceitem($index)"  class="btn  btn-success">忽略</button>
+                               <button type="button" ng-click="hideresourceitem($index)"  class="btn  btn-success">忽略</button>
                             </div>
                         </h4>
                         <p>{{item.belonging}}</p>
@@ -58,15 +57,39 @@
             </div>
             </div>
             <hr class="button-divider">
-            <button type="button" class="btn btn-block btn-danger"><strong>确认屏蔽</strong></button>
+            <button type="button" ng-click="blcokResourceListAction()" class="btn btn-block btn-danger"><strong>确认屏蔽</strong></button>
         </div>
         <!-- Modal -->
+        <div class="modal  fade" id="blockResult" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title text-center text-info" id="myModalLabel2"><strong>屏蔽结果</strong></h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="media">
+                            <div class="media-left media-middle">
+                                <a href="#">
+                                    <img class="media-object" src="../images/Success_128px_1194837_easyicon.net.png" alt="label">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h2 style="padding: 20px 0;"><strong style="padding-left: 70px">屏蔽成功</strong></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="modal  fade" id="resourceModal" tabindex="-2" role="dialog" aria-labelledby="myModalLabel2">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h3 class="modal-title text-center text-info" id="myModalLabel2"><strong>Ip地址：192.168.1.1</strong></h3>
+                        <h3 class="modal-title text-center text-info" id="myModalLabel3"><strong>{{resourceDetail.title}}</strong></h3>
                     </div>
                     <div class="modal-body">
                         <div class="row whitebox ">

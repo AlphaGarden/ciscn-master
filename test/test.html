@@ -22,48 +22,39 @@
     <link type="text/css" rel="stylesheet" href="../css/animate.css"/>
 </head>
 <body>
-<!-- Split button -->
-<!-- Single button -->
-<div class="btn-group-lg">
-    <button  type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{pZone}} <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-        <li><a ng-click="zonePicker('美国')">美国</a></li>
-        <li><a ng-click="zonePicker('意大利')">意大利</a></li>
-        <li><a ng-click="zonePicker('韩国')">韩国</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a ng-click="zonePicker('日本')">日本</a></li>
-    </ul>
-</div>
-<div class="btn-group">
-    <button type="button" class="btn btn-danger" ng-model="pZone">Action</button>
-    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="caret"></span>
-        <span class="sr-only">Toggle Dropdown</span>
-    </button>
-    <ul  class="dropdown-menu">
-        <li><a >Action</a></li>
-        <li><a ng-click="zonePicker('Another action')">Another action</a></li>
-        <li><a >Something else here</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="#">Separated link</a></li>
-    </ul>
-</div>
-<div style="margin:0 200px" class="progress progress-striped active animated fadeIn">
-        <div id="bar" class="progress-bar progress-bar-success" role="progressbar"
-             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-             style="width: 0;">
-            <span class="sr-only">加载中</span>
+<!-- Modal for live detail -->
+<button id="show" class="btn btn-success">Open</button>
+<button id="hide" class="btn btn-danger">Close</button>
+<div class="modal  fade" id="blockResult" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title text-center text-info" id="myModalLabel2"><strong>屏蔽结果</strong></h3>
+            </div>
+            <div class="modal-body">
+                <div class="media">
+                    <div class="media-left media-middle">
+                        <a href="#">
+                            <img class="media-object" src="../images/Success_128px_1194837_easyicon.net.png" alt="label">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h2 style="padding: 20px 0;"><strong style="padding-left: 70px">屏蔽成功</strong></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
         </div>
+    </div>
 </div>
 </body>
 <script>
-    var proces =0;
-    function move() {
-        proces = proces+1;
-        $("#bar").attr("style","width:"+proces+"%");
-    }
-    setInterval("move()",100);
+    $("#show").click(function () {
+     $("#liveModal").modal('show');
+    });
+
+
 </script>
 </html>

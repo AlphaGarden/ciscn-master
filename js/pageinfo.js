@@ -75,7 +75,7 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
         // alert($scope.btnflag);
     };
     $scope.hideresourceitem = function (index) {
-        $scope.resourcerecord.splice(index,1);
+        $scope.realtimeNonLiveRecord.splice(index,1);
     };
     $scope.hidenodeitem = function (index) {
         $scope.noderecord.splice(index,1);
@@ -111,28 +111,6 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
 
         });
     }
-    $scope.historyNodeRecord=[
-        {
-            'ip':'114.117.194.0',
-            'title':'Ip地址:114.117.194.0',
-            'src':'../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png',
-            'belonging':'四川成都市',
-            'captureTime':'Sun, 23 Apr 2017 09:42:35 GMT',
-            'blockTime':'Sun, 23 Apr 2017 09:45:35 GMT',
-            'keywords':['女优','法轮功','恐怖袭击']
-        },
-        {
-            'ip':'114.117.194.0',
-            'title':'Ip地址:114.117.194.0',
-            'src':'../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png',
-            'belonging':'江苏南京市',
-            'captureTime':'Sun, 23 Apr 2017 09:42:35 GMT',
-            'blockTime':'Sun, 23 Apr 2017 09:45:35 GMT',
-            'keywords':['韩国少女情怀','叙利亚战争','恐怖袭击']
-        }
-    ];
-
-
 
     //overview page
     $scope.overviewSwitch = function (flag) {
@@ -472,18 +450,94 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
         $("#nodeModal").modal();
     }
 
+    $scope.blcokResourceListAction = function () {
+        alert(resourcemarklist);
+        $("#blockResult").modal('show');
+    };
+    $scope.blockNodeListAction = function(){
+        alert(nodemarklist);
+        $("#blockResult").modal('show');
+    };
+
+    $scope.cancelBlockResourceListAction = function () {
+        alert(cancelResourceMarkList);
+    };
+
+    $scope.cancelBlockNodeListAction = function(){
+        alert(cancelNodeMarkList);
+    };
+
 //    Test info
+    $scope.historyNodeRecord=[
+        {
+            'ip':'114.117.194.0',
+            'title':'Ip地址:114.117.194.0',
+            'src':'../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png',
+            'belonging':'四川成都市',
+            'captureTime':'Sun, 23 Apr 2017 09:42:35 GMT',
+            'blockTime':'Sun, 23 Apr 2017 09:45:35 GMT',
+            'keywords':['女优','法轮功','恐怖袭击']
+        },
+        {
+            'ip':'114.117.194.1',
+            'title':'Ip地址:114.117.194.0',
+            'src':'../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png',
+            'belonging':'江苏南京市',
+            'captureTime':'Sun, 23 Apr 2017 09:42:35 GMT',
+            'blockTime':'Sun, 23 Apr 2017 09:45:35 GMT',
+            'keywords':['韩国少女情怀','叙利亚战争','恐怖袭击']
+        }
+    ];
     $scope.liveDetail = {
         'host':'苍老师',
         "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
         'room':'live-001',
+        'platform':'斗鱼TV',
         'captureTime':'Sun, 23 Apr 2017 09:44:35 GMT',
         'watchNum':'100098',
         'classification':'色情',
         'textCharacter':['老司机快来，我报警了','这大尺度。。。。。','快报警'],
         'imageCharacter':['http://localhost:63342/ciscn-master/images/image_picture_128px_1187880_easyicon.net.png','http://localhost:63342/ciscn-master/images/hotspot_128px_1114554_easyicon.net.png']
 
-    }
+    };
+    $scope.resourcerecord = [
+        {
+            "id":"resource-001",
+            "ip":"114.117.194.0",
+            "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
+            "heading":"Ip地址:114.117.194.0",
+            "belonging":"归属地：四川成都市",
+            "capturetime":"捕获时间:Sun, 23 Apr 2017 09:42:35 ",
+            "resourcename":"资源名：超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿",
+            "resourcetype":"视频文件",
+            "classfystandard":"色情",
+            "labeltype":ramdonlabelclasspicker.pick()
+        },
+        {
+            "id":"resource-002",
+            "ip":"114.117.194.0",
+            "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
+            "heading":"Ip地址:114.117.194.1",
+            "belonging":"归属地：四川成都市",
+            "capturetime":"捕获时间:Sun, 23 Apr 2017 09:42:35 ",
+            "resourcename":"资源名：超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿",
+            "resourcetype":"视频文件",
+            "classfystandard":"色情",
+            "labeltype":ramdonlabelclasspicker.pick()
+        },
+        {
+            "id":"resource-003",
+            "ip":"114.117.194.0",
+            "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
+            "heading":"Ip地址:114.117.194.2",
+            "belonging":"归属地：四川成都市",
+            "capturetime":"捕获时间:Sun, 23 Apr 2017 09:42:35 ",
+            "resourcename":"资源名：超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多  小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿",
+            "resourcetype":"视频文件",
+            "classfystandard":"色情",
+            "labeltype":ramdonlabelclasspicker.pick()
+        }
+    ];
     $scope.noderecord = [
         {
             "ip":"114.117.194.0",
@@ -534,7 +588,7 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
         },
         {
             "id":"resource-002",
-            "ip":"114.117.194.0",
+            "ip":"114.117.194.1",
             "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
             "heading":"Ip地址:114.117.194.1",
             "belonging":"归属地：四川成都市",
@@ -546,7 +600,7 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
         },
         {
             "id":"resource-003",
-            "ip":"114.117.194.0",
+            "ip":"114.117.194.2",
             "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
             "heading":"Ip地址:114.117.194.2",
             "belonging":"归属地：四川成都市",
@@ -558,16 +612,16 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
         }
     ];
     $scope.resourceDetail = {
-        'id':'resource-001',
-        'title':'Ip地址：192.168.1.1',
-        'titleImage':'../images/image_picture_128px_1187880_easyicon.net.png',
-        'belonging':'四川成都',
-        'cpatureTime':'"Sun, 23 Apr 2017 09:44:35 GMT',
-        'fileType':'视频文件',
-        'classificationType':'色情',
-        'name':'超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多 小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多 小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿',
-        'textCharacter':['老司机快来，我报警了','这大尺度。。。。。','快报警','福利大放送'],
-        'imgaeCharacter':['http://localhost:63342/ciscn-master/images/image_picture_128px_1187880_easyicon.net.png','http://localhost:63342/ciscn-master/images/hotspot_128px_1114554_easyicon.net.png']
+        "id":"resource-001",
+        "title":"Ip地址：192.168.1.1",
+        "titleImage":"../images/image_picture_128px_1187880_easyicon.net.png",
+        "belonging":"四川成都",
+        "cpatureTime":"Sun, 23 Apr 2017 09:44:35 GMT",
+        "fileType":"视频文件",
+        "classificationType":"色情",
+        "name":"超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多 小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿超性感的极品露脸校花女情黑丝,援助富商拍摄淫片 极品嫩穴后入爆艹颜射吞 卧室猛干人间尤物嫩逼二奶，一天操三次都不嫌多 小女粉嫩爽滑 大连SA哥又搞了条新鲜嫩菜 舞蹈學校美騷貨插得直流白漿",
+        "textCharacter":['老司机快来，我报警了','这大尺度。。。。。','快报警','福利大放送'],
+        "imgaeCharacter":['http://localhost:63342/ciscn-master/images/image_picture_128px_1187880_easyicon.net.png','http://localhost:63342/ciscn-master/images/hotspot_128px_1114554_easyicon.net.png']
     };
     $scope.realtimeNonLiveRecord=[
         {
@@ -598,7 +652,7 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
             "ip":"113.44.15.105",
             "src":"../images/infobar/text_lines_51.658703071672px_1205974_easyicon.net.png",
             "title":"113.44.15.105",
-            "belonging":"意大利",
+            "belonging":"广东佛山",
             "capturetime":"Sat, 23 Apr 2017 09:41:35 GMT",
             "filename":"成年コミック) [雑誌] [アンソロジー] 月刊Web男の娘・れくしょんッ！S Vol.04 [DL版].zip",
             "filetype":["压缩图片文件","种子文件"],
@@ -609,7 +663,7 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
             "ip":"113.44.15.105",
             "src":"../images/infobar/computer_68.88583218707px_1202751_easyicon.net.png",
             "title":"113.44.15.105",
-            "belonging":"俄罗斯",
+            "belonging":"广东深圳",
             "capturetime":"Sun, 23 Apr 2017 09:41:35 GMT",
             "filename":"青草_20160131A本资源群347491671由我爱主播网整理发布.mp4",
             "filetype":["视频mp4文件","种子文件"],
@@ -618,7 +672,7 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
     ];
     $scope.realtimeLiveRecord=[
         {
-            'liveId':'live-001',
+            "liveId":"live-001",
             "src":"../images/harmfulinfo/porn_128px_1075595_easyicon.net.png",
             "title":"斗鱼专业色情主播",
             "capturetime":"Sun, 23 Apr 2017 09:44:35 GMT",
@@ -705,24 +759,46 @@ app.controller("navController",function ($scope,$interval,$http,ramdonlabelclass
             "livetype":"色情"
         }
     ];
-    $scope.records=[
+    $scope.overviewNonLiveRecords=[
         {
-            "src":"../images/pie_chart_128px_1207526_easyicon.net.png",
-            "title":"图像",
-            "content":"This is the data info to check to the chart trends in the Story Network!",
-            "btn":"查看"
+            "src":"../images/harmfulinfo/21_Grams_v_2_64px_583656_easyicon.net.png",
+            "name":"纵情女郎1080p.MFL.mkv",
+            "type":"色请",
+            "ip":"119.97.183.208",
+            "belonging":"湖北省武汉市 电信",
+            "capturetime":"2017-4-1 2:54",
+            "downloadNum":"13424",
+            "status":"未屏蔽"
         }, {
-            "src":"../images/target_128px_1207541_easyicon.net.png",
-            "title":"文本",
-            "content":"This is the data info to check to the chart trends in the Story Network!",
-            "btn":"查看"
+            "src":"../images/harmfulinfo/5_Star_Day_v_2_64px_583642_easyicon.net.png",
+            "name":"야동급 리액션 대박입니다.wmv",
+            "type":"色请",
+            "ip":"114.117.194.0",
+            "belonging":"广东省深圳市 长城宽带",
+            "capturetime":"2017-3-1 12:59",
+            "downloadNum":"12420",
+            "status":"屏蔽"
         }, {
-
-            "src":"../images/hotspot_128px_1114554_easyicon.net.png",
-            "title":"视频",
-            "content":"This is the data info to check to the chart trends in the Story Network!",
-            "btn":"查看"
+            "src":"../images/harmfulinfo/21_Grams_v_2_64px_583656_easyicon.net.png",
+            "name":"第一會所新片@SIS001@(映天)(YAG-071)変態露出倶楽部_SP_高橋美緒",
+            "type":"暴力",
+            "ip":"115.174.164.71",
+            "belonging":"上海市上海市 长城宽带",
+            "capturetime":"2017-3-26 1:21",
+            "downloadNum":"2420",
+            "status":"未屏蔽"
         }];
+    $scope.overviewLiveRecords = [
+        {
+            "liveId":"live-001",
+            "src":"../images/harmfulinfo/porn_128px_1075595_easyicon.net.png",
+            "title":"斗鱼专业色情主播",
+            "capturetime":"Sun, 23 Apr 2017 09:44:35 GMT",
+            "platform":"斗鱼tv",
+            "number":"6952",
+            "livetype":"色情"
+        }
+    ];
     $scope.sliderecords=[
         {
             "class":"second-slide img-responsive",

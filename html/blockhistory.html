@@ -45,8 +45,7 @@
                             <h4 class="media-heading">
                                 <strong id="ip1">{{item.title}}</strong>
                                 <div ng-show="btnflag==$index" class="btn-group-sm pull-right">
-                                    <button type="button" marknode class="btn btn-warning">标记节点</button>
-                                    <button type="button" class="btn  btn-danger">取消屏蔽</button>
+                                    <button type="button" tag="{{item.ip}}" cancel-mark-node class="btn btn-warning">标记节点</button>
                                 </div>
                             </h4>
                             <p>归属地：{{item.belonging}}</p>
@@ -131,9 +130,7 @@
                                                     <h4 class="media-heading">
                                                         <strong>{{item.heading}}</strong>
                                                         <div ng-show="btnflag==$index" class="btn-group-sm animated fadeIn pull-right">
-                                                            <button type="button" marksource tag="{{item.id}}" class="btn  btn-warning">标记资源</button>
-                                                            <button type="button" marknode tag="{{item.ip}}"  class="btn  btn-danger">标记结点</button>
-                                                            <button type="button" ng-click="hideresourceitem($index)"  class="btn  btn-success">忽略</button>
+                                                            <button type="button" cancel-mark-reource tag="{{item.id}}" class="btn  btn-warning">标记资源</button>
                                                         </div>
                                                     </h4>
                                                     <p>{{item.belonging}}</p>
@@ -145,7 +142,7 @@
                                             </div>
                                         </div>
                                         <hr class="button-divider">
-                                        <button type="button" class="btn btn-block btn-danger"><strong>确认屏蔽</strong></button>
+                                        <button type="button" ng-click="cancelBlockResourceListAction()" class="btn btn-block btn-danger"><strong>取消屏蔽</strong></button>
                                     </div>
                                 </div>
                             </div>
@@ -162,7 +159,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h3 class="modal-title text-center text-info" id="myModalLabel2"><strong>Ip地址：192.168.1.1</strong></h3>
+                                <h3 class="modal-title text-center text-info" id="myModalLabel2"><strong>{{resourceDetail.title}}</strong></h3>
                             </div>
                             <div class="modal-body">
                                 <div class="row whitebox ">
@@ -225,7 +222,7 @@
         </div>
 
         <div class="row">
-            <button type="button" class="btn btn-block btn-success"><strong>批量取消屏蔽</strong></button>
+            <button type="button" ng-click="cancelBlockNodeListAction()" class="btn btn-block btn-success"><strong>批量取消屏蔽</strong></button>
         </div>
     </div>
 </div>
