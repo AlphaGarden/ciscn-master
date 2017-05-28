@@ -1,7 +1,10 @@
 /**
+ * Created by dell on 2017/5/25.
+ */
+/**
  * Created by garden on 17-4-12.
  */
-var eChart2 = echarts.init(document.getElementById("echart2"));
+var eChart2 = echarts.init(document.getElementById("echart3"));
 eChart2.showLoading();
 var data = [
     {name: '海门', value: 9},
@@ -178,7 +181,7 @@ var data = [
     {name: '义乌', value: 132},
     {name: '丽水', value: 133},
     {name: '洛阳', value: 134},
-    {name: '秦皇岛', value: 136},
+    {name: 'Phoenix', value: 136},
     {name: '株洲', value: 143},
     {name: '石家庄', value: 147},
     {name: '莱芜', value: 148},
@@ -188,12 +191,12 @@ var data = [
     {name: '金华', value: 157},
     {name: '岳阳', value: 169},
     {name: '长沙', value: 175},
-    {name: '衢州', value: 177},
-    {name: '廊坊', value: 193},
-    {name: '菏泽', value: 194},
-    {name: '合肥', value: 229},
-    {name: '武汉', value: 273},
-    {name: '大庆', value: 279}
+    {name: 'Shen Zhen', value: 177},
+    {name: 'Hong Kong', value: 193},
+    {name: 'New York', value: 194},
+    {name: 'Moscow', value: 229},
+    {name: 'Tokyo', value: 273},
+    {name: 'Los Angeles', value: 279}
 ];
 var geoCoordMap = {
     '海门':[121.15,31.89],
@@ -370,7 +373,7 @@ var geoCoordMap = {
     '义乌':[120.06,29.32],
     '丽水':[119.92,28.45],
     '洛阳':[112.44,34.7],
-    '秦皇岛':[119.57,39.95],
+    'Phoenix':[-112.04,33.35],
     '株洲':[113.16,27.83],
     '石家庄':[114.48,38.03],
     '莱芜':[117.67,36.19],
@@ -380,12 +383,12 @@ var geoCoordMap = {
     '金华':[119.64,29.12],
     '岳阳':[113.09,29.37],
     '长沙':[113,28.21],
-    '衢州':[118.88,28.97],
-    '廊坊':[116.7,39.53],
-    '菏泽':[115.480656,35.23375],
-    '合肥':[117.27,31.86],
-    '武汉':[114.31,30.52],
-    '大庆':[125.03,46.58]
+    'Shen Zhen':[113.20,22.27],
+    'Hong Kong':[114.10,22.20],
+    'New York':[-74,40.71],
+    'Moscow':[37.36,55.45],
+    'Tokyo':[139.69,35.68],
+    'Los Angeles':[-118.15,34.03]
 };
 
 var convertData = function (data) {
@@ -405,7 +408,7 @@ var convertData = function (data) {
 option = {
     backgroundColor: '#fff',
     title: {
-        text: 'Hot Spot Map(China)',
+        text: 'Hot Spot Map(World)',
         subtext: 'data from PM25.in',
         sublink: 'http://www.pm25.in',
         left: 'center',
@@ -426,7 +429,7 @@ option = {
         }
     },
     geo: {
-        map: 'china',
+        map: 'world',
         label: {
             emphasis: {
                 show: false

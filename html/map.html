@@ -22,7 +22,22 @@
     </div>
     <div style="margin-top: 100px" class="row overview">
         <div class="col-md-6">
-            <div class="center-block animated fadeIn" style="width: 500px;height: 500px" id="echart2"></div>
+            <ul class="nav nav-tabs">
+                <li role="presentation" ng-class="{'china':'active','world':''}[mapTypeFlag]"><a ng-click="mapSwitch('china')" class="text-info" role="tab">中国</a></li>
+                <li role="presentation" ng-class="{'china':'','world':'active'}[mapTypeFlag]"><a ng-click="mapSwitch('world')" class="text-info" role="tab">世界地图</a></li>
+            </ul>
+            <div ng-switch="mapTypeFlag">
+                <div ng-switch-when="china">
+                    <div class="center-block animated fadeIn" style="width: 500px;height: 500px" id="echart2"></div>
+                    <script src="../bower_components/echarts/map/js/china.js"></script>
+                    <script src="../js/charthelper/map.js"></script>
+                </div>
+                <div ng-switch-when="world">
+                    <div class="center-block animated fadeIn" style="width: 500px;height: 500px" id="echart3"></div>
+                    <script src="../bower_components/echarts/map/js/world.js"></script>
+                    <script src="../js/charthelper/map2.js"></script>
+                </div>
+            </div>
             <!-- Modal -->
             <div class="modal  fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog modal-lg" role="document">
@@ -32,7 +47,7 @@
                             <h4 class="modal-title" id="myModalLabel">四川省 成都市</h4>
                         </div>
                         <div class="modal-body">
-                            <div class="center-block" style="width: 800px;height: 800px" id="echart3"></div>
+                            <div class="center-block" style="width: 800px;height: 800px" id="echart4"></div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -148,7 +163,7 @@
         </div>
     </div>
 </div>
-<script src="../bower_components/echarts/map/js/world.js"></script>
+
 <!--<script src="../js/charthelper/mychart.js"></script>-->
-<script src="../js/charthelper/map.js"></script>
+
 <script src="../js/charthelper/dotmap.js"></script>

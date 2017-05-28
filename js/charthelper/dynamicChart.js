@@ -20,9 +20,9 @@ $.get('http://localhost:63342/ciscn-master/json/life-expectancy.json', function 
     };
     // Schema:
     var schema = [
-        {name: 'Income', index: 0, text: '人均收入', unit: '美元'},
-        {name: 'LifeExpectancy', index: 1, text: '人均寿命', unit: '岁'},
-        {name: 'Population', index: 2, text: '总人口', unit: ''},
+        {name: 'Income', index: 0, text: '不良资源数', unit: '个'},
+        {name: 'LifeExpectancy', index: 1, text: '净化率', unit: '%'},
+        {name: 'Population', index: 2, text: '爬取资源数', unit: '个'},
         {name: 'Country', index: 3, text: '国家', unit: ''}
     ];
 
@@ -127,7 +127,7 @@ $.get('http://localhost:63342/ciscn-master/json/life-expectancy.json', function 
             },
             yAxis: {
                 type: 'value',
-                name: '检测数目',
+                name: '检测比',
                 max: 100,
                 nameTextStyle: {
                     color: 'black',

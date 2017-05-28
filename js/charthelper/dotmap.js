@@ -2,7 +2,7 @@
  * Created by garden on 17-4-17.
  */
 
-var eChart3 = echarts.init(document.getElementById("echart3"));
+var eChart3 = echarts.init(document.getElementById("echart4"));
 eChart3.showLoading();
 $.get('http://localhost:63342/ciscn-master/xml/les-miserables.gexf', function (xml) {
     eChart3.hideLoading();
