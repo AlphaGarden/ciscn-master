@@ -147,7 +147,7 @@ ul li a img{
     margin-left: 0;
     border: 2px solid #e1e1e8;
     background-color: #ffffff;
-    border-radius: 4px 4px 0 0;
+    border-radius: 5px 5px 0 0;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
@@ -191,6 +191,20 @@ ul li a img{
 }
 /*<a> setting*/
 a{
+    cursor: pointer;
+}
+/*log module*/
+.tabletab1{
+    background-color: khaki;
+    cursor: pointer;
+    border-radius: 1px 1px 1px 1px;
+}
+.tabletab2{
+    background-color: #91C7AE;
+    cursor: pointer;
+}
+.tabletab3{
+    background-color: #9FDABF;
     cursor: pointer;
 }
 /*<img> style*/

@@ -158,7 +158,36 @@ app.controller("navController", function ($scope, $interval, $http, ramdonlabelc
     $scope.btnhide = function () {
         $scope.btnflag = -1;//Not matching any media,so hide that button blcok
     };
-    // TODO
+    // Log module start
+    $scope.showPreview =function () {
+        $("#logPreviewPage").modal('show');
+    };
+    $scope.liveRecordForLog = [{
+        "platformName":"斗鱼TV",
+        "anchor":"safjabAv",
+        "roomId":"23210",
+        "time":"2017-6-23 23:23",
+        "violatedContent":"涉黄"
+    },{
+        "platformName":"BiliBili",
+        "anchor":"j江湖笑",
+        "roomId":"68430",
+        "time":"2017-6-23 19:23",
+        "violatedContent":"暴力 血腥"
+    },{
+        "platformName":"熊猫TV",
+        "anchor":"safjabAv",
+        "roomId":"231451",
+        "time":"2017-6-23 16:23",
+        "violatedContent":"反动"
+    },{
+        "platformName":"花椒TV",
+        "anchor":"N/A",
+        "roomId":"15292",
+        "time":"2017-6-23 12:23",
+        "violatedContent":"涉黄"
+    }];
+    // Log Module End
 
     $scope.refreshHistoryNodeRecord = function () {
         $http({
