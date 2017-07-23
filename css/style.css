@@ -185,7 +185,10 @@ ul li a img{
 .cancelnodemark{
     background-color: lightsalmon;
 }
-
+/*label sytel*/
+.l-cursor{
+    cursor: pointer;
+}
 /*<a> setting*/
 a{
     cursor: pointer;

@@ -23,6 +23,81 @@ app.controller("navController", function ($scope, $interval, $http, ramdonlabelc
     $scope.videoFilter = true;
     $scope.pageFilter = 1;
     $scope.timeFilter = '2017';
+    /*Running Setting start*/
+    $scope.sensitiveKeyword = ["日本","性感","裸体","法轮功"];
+    $scope.platform = ["斗鱼TV","熊猫TV","全民TV"];
+    $scope.trustfulDhtNode = ["router.bittorrent.com:6881","dht.transmissionbt.com:6881","router.utorrent.com:6881"];
+    $scope.emailList = ["313016129@qq.com","mojiayong@outlook.com"];
+    $scope.addWord1 = function () {
+        var keyword1 = angular.element('#keyword1')[0].value;
+        var index = $.inArray(keyword1,$scope.sensitiveKeyword);
+        if(index ==  -1){//不存在与数组中
+           if(keyword1 == ""){
+               alert("该输入栏不能为空");
+           }else{
+               $scope.sensitiveKeyword.push(keyword1);
+               angular.element('#keyword1')[0].value = "";
+           }
+        }else{
+            alert(keyword1+"已存在");
+        }
+
+    };
+    $scope.deleteKeyword1 = function (index) {
+        $scope.sensitiveKeyword.splice(index,1);
+    };
+    $scope.addPlatformword = function () {
+        var keyword1 = angular.element('#platformValue')[0].value;
+        var index = $.inArray(keyword1,$scope.platform);
+        if(index ==  -1){//不存在与数组中
+            if(keyword1 == ""){
+                alert("该输入栏不能为空");
+            }else{
+                $scope.platform.push(keyword1);
+                angular.element('#platformValue')[0].value = "";
+            }
+        }else{
+            alert(keyword1+"已存在");
+        }
+    }
+    $scope.deletePlatformValue = function (index) {
+        $scope.platform.splice(index,1);
+    };
+    $scope.addDHTNode = function () {
+        var keyword1 = angular.element('#dhtnodeValue')[0].value;
+        var index = $.inArray(keyword1,$scope.trustfulDhtNode);
+        if(index ==  -1){//不存在与数组中
+            if(keyword1 == ""){
+                alert("该输入栏不能为空");
+            }else{
+                $scope.trustfulDhtNode.push(keyword1);
+                angular.element('#dhtnodeValue')[0].value = "";
+            }
+        }else{
+            alert(keyword1+"已存在");
+        }
+    };
+    $scope.deletedhtValue = function (index) {
+        $scope.trustfulDhtNode.splice(index,1);
+    };
+    $scope.deleteEmail = function(index){
+        $scope.emailList.splice(index,1);
+    };
+    $scope.addEmail = function(){
+        var keyword1 = angular.element('#emailValue')[0].value;
+        var index = $.inArray(keyword1,$scope.emailList);
+        if(index ==  -1){//不存在与数组中
+            if(keyword1 == ""){
+                alert("该输入栏不能为空");
+            }else{
+                $scope.emailList.push(keyword1);
+                angular.element('#emailValue')[0].value = "";
+            }
+        }else{
+            alert(keyword1+"已存在");
+        }
+    };
+    /*Running Setting end*/
     $scope.toggleshow = function () {
         $scope.isover = true;
 
@@ -119,7 +194,7 @@ app.controller("navController", function ($scope, $interval, $http, ramdonlabelc
     //realTime Page
     $scope.realtimeSwitch = function (flag) {
         $scope.realtimeTypeFlag = flag;
-    };
+};
 
     $scope.refreshResourceRecord = function () {
         $http({

@@ -25,7 +25,6 @@ $.get('http://localhost:63342/ciscn-master/json/life-expectancy.json', function 
         {name: 'Population', index: 2, text: '爬取资源数', unit: '个'},
         {name: 'Country', index: 3, text: '国家', unit: ''}
     ];
-
     option = {
         baseOption: {
             timeline: {
@@ -105,7 +104,7 @@ $.get('http://localhost:63342/ciscn-master/json/life-expectancy.json', function 
             },
             xAxis: {
                 type: 'log',
-                name: '时间',
+                name: '不良资源数',
                 max: 100000,
                 min: 300,
                 nameGap: 25,
@@ -122,7 +121,7 @@ $.get('http://localhost:63342/ciscn-master/json/life-expectancy.json', function 
                     }
                 },
                 axisLabel: {
-                    formatter: '{value} s'
+                    formatter: '{value} 个'
                 }
             },
             yAxis: {

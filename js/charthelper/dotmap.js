@@ -4,7 +4,7 @@
 
 var eChart3 = echarts.init(document.getElementById("echart4"));
 eChart3.showLoading();
-$.get('http://localhost:63342/ciscn-master/xml/les-miserables.gexf', function (xml) {
+$.get('/ciscn-master/xml/les-miserables.gexf', function (xml) {
     eChart3.hideLoading();
     var series =[];
     var graph = echarts.dataTool.gexf.parse(xml);

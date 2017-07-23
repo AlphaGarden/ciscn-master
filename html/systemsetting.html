@@ -45,44 +45,46 @@
                 <div class="whitebox">
                     <h3>自定义敏感关键词库：</h3>
                     <div style="margin-top:10px;">
-                        <span class="label label-default">日本幼女</span>
-                        <span class="label label-success">性感</span>
-                        <span class="label label-info">裸体</span>
-                        <span class="label label-warning">法轮功</span>
-                        <span class="label label-danger">袭击</span>
+                        <span  ng-repeat="item in sensitiveKeyword" ng-click="deleteKeyword1($index)" class="label l-cursor label-danger animated flipInX">{{item}}<i style="margin-left: 5px">&times;</i></span>
                         <hr class="content-divider">
                         <div class="input-group">
-                            <input type="text" class="form-control" aria-label="label-info">
+                            <input  id="keyword1"  type="text" class="form-control" aria-label="label-info">
                             <div class="input-group-btn">
-                                <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-up"></i>增加</button>
+                                <button ng-click="addWord1()" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-up"></i>增加</button>
                             </div>
                         </div>
                     </div>
-                    <h3>自定义主播信息库：</h3>
+                    <h3>自定义直播平台库：</h3>
                     <div style="margin-top:10px;">
-                        <span class="label label-default"></span>
-                        <span class="label label-primary">小优主播</span>
-                        <span class="label label-success">福利发送</span>
-                        <span class="label label-info">美女主播</span>
+                        <span ng-repeat="item in platform" ng-click="deletePlatformValue($index)" class="label l-cursor label-primary animated rollIn">{{item}}<i style="margin-left: 5px">&times;</i></span>
                     </div>
                     <hr class="content-divider">
                     <div class="input-group">
-                        <input type="text" class="form-control" aria-label="label-info">
+                        <input id="platformValue" type="text" class="form-control" aria-label="label-info">
                         <div class="input-group-btn">
-                            <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-up"></i>增加</button>
+                            <button ng-click="addPlatformword()" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-up"></i>增加</button>
                         </div>
                     </div>
                     <h3>自定义DHT网络信任结点库：</h3>
                     <div style="margin-top:10px;">
-                        <span class="label label-warning">router.bittorrent.com:6881</span>
-                        <span class="label label-success">dht.transmissionbt.com:6881</span>
-                        <span class="label label-info">router.utorrent.com:6881</span>
+                        <span ng-repeat="item in trustfulDhtNode" ng-click="deletedhtValue($index)" class="label l-cursor  label-success animated rollIn">{{item}}<i style="margin-left: 5px">&times;</i></span>
                     </div>
                     <hr class="content-divider">
                     <div class="input-group">
-                        <input type="text" class="form-control" aria-label="label-info">
+                        <input  id="dhtnodeValue" type="text" class="form-control" aria-label="label-info">
                         <div class="input-group-btn">
-                            <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-up"></i>增加</button>
+                            <button ng-click="addDHTNode()" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-up"></i>增加</button>
+                        </div>
+                    </div>
+                    <h3>用户邮箱库：</h3>
+                    <div style="margin-top:10px;">
+                        <span ng-repeat="item in emailList" ng-click="deleteEmail($index)" class="label l-cursor label-info animated rollIn">{{item}}<i style="margin-left: 5px">&times;</i></span>
+                    </div>
+                    <hr class="content-divider">
+                    <div class="input-group">
+                        <input id="emailValue" type="text"  class="form-control" aria-label="label-info">
+                        <div class="input-group-btn">
+                            <button ng-click="addEmail()" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-up"></i>增加</button>
                         </div>
                     </div>
                 </div>
